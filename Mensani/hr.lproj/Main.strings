@@ -1,0 +1,810 @@
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "05U-xs-a9z"; */
+"05U-xs-a9z.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "05U-xs-a9z"; */
+"05U-xs-a9z.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Weekly"; ObjectID = "0gT-lz-Frq"; */
+"0gT-lz-Frq.text" = "Weekly";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "13l-eB-JTw"; */
+"13l-eB-JTw.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "13l-eB-JTw"; */
+"13l-eB-JTw.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = " "; ObjectID = "1Aj-nc-pBH"; */
+"1Aj-nc-pBH.text" = " ";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "1Xc-YB-Vh6"; */
+"1Xc-YB-Vh6.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "1Xc-YB-Vh6"; */
+"1Xc-YB-Vh6.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "1jE-y3-We8"; */
+"1jE-y3-We8.normalTitle" = "Start";
+
+/* Class = "UILabel"; text = "Appointments"; ObjectID = "1qC-zc-VgJ"; */
+"1qC-zc-VgJ.text" = "Appointments";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "1t9-e1-26K"; */
+"1t9-e1-26K.text" = "Support";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "2DK-sl-SuC"; */
+"2DK-sl-SuC.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2DK-sl-SuC"; */
+"2DK-sl-SuC.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "2I3-Yw-dzb"; */
+"2I3-Yw-dzb.normalTitle" = "Save";
+
+/* Class = "UIButton"; configuration.title = "EXCITED"; ObjectID = "2bM-9J-033"; */
+"2bM-9J-033.configuration.title" = "EXCITED";
+
+/* Class = "UIButton"; configuration.title = "DEPRESSED"; ObjectID = "2vD-t5-YFe"; */
+"2vD-t5-YFe.configuration.title" = "DEPRESSED";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "3kI-fc-2KY"; */
+"3kI-fc-2KY.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3kI-fc-2KY"; */
+"3kI-fc-2KY.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Pre-Event"; ObjectID = "3rb-xh-hTV"; */
+"3rb-xh-hTV.text" = "Pre-Event";
+
+/* Class = "UILabel"; text = "My Secondary Goal"; ObjectID = "3vi-Yt-ODH"; */
+"3vi-Yt-ODH.text" = "My Secondary Goal";
+
+/* Class = "UILabel"; text = "Password "; ObjectID = "4DF-gF-sWB"; */
+"4DF-gF-sWB.text" = "Password ";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "4N0-kk-pMT"; */
+"4N0-kk-pMT.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4N0-kk-pMT"; */
+"4N0-kk-pMT.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "4Pq-Ye-fHD"; */
+"4Pq-Ye-fHD.text" = "Password";
+
+/* Class = "UILabel"; text = "Sports"; ObjectID = "4TR-sd-bw7"; */
+"4TR-sd-bw7.text" = "Sports";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "4ch-3q-NVH"; */
+"4ch-3q-NVH.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4ch-3q-NVH"; */
+"4ch-3q-NVH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Sports"; ObjectID = "55K-0c-2nk"; */
+"55K-0c-2nk.text" = "Sports";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "5I2-ju-gAe"; */
+"5I2-ju-gAe.text" = "00:00:00";
+
+/* Class = "UILabel"; text = "Select language"; ObjectID = "5sD-F7-R7r"; */
+"5sD-F7-R7r.text" = "Select language";
+
+/* Class = "UIButton"; normalTitle = "Wellbeing"; ObjectID = "67W-ZA-9ZQ"; */
+"67W-ZA-9ZQ.normalTitle" = "Wellbeing";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "6rd-TK-rsP"; */
+"6rd-TK-rsP.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6rd-TK-rsP"; */
+"6rd-TK-rsP.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Daily"; ObjectID = "6rm-Tw-xU7"; */
+"6rm-Tw-xU7.text" = "Daily";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "6sv-bX-Qo5"; */
+"6sv-bX-Qo5.normalTitle" = "Save";
+
+/* Class = "UIButton"; configuration.title = "ANXIOUS"; ObjectID = "7G9-Ys-7j6"; */
+"7G9-Ys-7j6.configuration.title" = "ANXIOUS";
+
+/* Class = "UIButton"; configuration.title = "  "; ObjectID = "7Jz-uS-0LP"; */
+"7Jz-uS-0LP.configuration.title" = "  ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7Jz-uS-0LP"; */
+"7Jz-uS-0LP.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "7OI-ER-kZM"; */
+"7OI-ER-kZM.normalTitle" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Support"; ObjectID = "7kJ-rU-B20"; */
+"7kJ-rU-B20.normalTitle" = "Support";
+
+/* Class = "UILabel"; text = "Appointment"; ObjectID = "8DO-BY-JLf"; */
+"8DO-BY-JLf.text" = "Appointment";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "8f6-hd-4AV"; */
+"8f6-hd-4AV.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8f6-hd-4AV"; */
+"8f6-hd-4AV.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Login "; ObjectID = "8wS-bw-cxB"; */
+"8wS-bw-cxB.configuration.title" = "Login ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8wS-bw-cxB"; */
+"8wS-bw-cxB.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Reset"; ObjectID = "9Id-Os-rXo"; */
+"9Id-Os-rXo.configuration.title" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "9Id-Os-rXo"; */
+"9Id-Os-rXo.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "9Y6-15-TaQ"; */
+"9Y6-15-TaQ.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "9Y6-15-TaQ"; */
+"9Y6-15-TaQ.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Reset"; ObjectID = "ADX-7C-bvR"; */
+"ADX-7C-bvR.configuration.title" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ADX-7C-bvR"; */
+"ADX-7C-bvR.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Als-b3-vub"; */
+"Als-b3-vub.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Preparing for a game"; ObjectID = "AvA-8A-vCf"; */
+"AvA-8A-vCf.text" = "Preparing for a game";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "BRq-jb-YsL"; */
+"BRq-jb-YsL.text" = "00:00:00";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "BiS-M5-N0u"; */
+"BiS-M5-N0u.normalTitle" = "Start";
+
+/* Class = "UILabel"; text = "Audio name"; ObjectID = "C1a-uf-CWy"; */
+"C1a-uf-CWy.text" = "Audio name";
+
+/* Class = "UIButton"; configuration.title = "Login "; ObjectID = "CR9-Bj-lJb"; */
+"CR9-Bj-lJb.configuration.title" = "Login ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CR9-Bj-lJb"; */
+"CR9-Bj-lJb.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "Cd1-Xo-9qG"; */
+"Cd1-Xo-9qG.title" = "Home";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "Cht-Tg-FcP"; */
+"Cht-Tg-FcP.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Cht-Tg-FcP"; */
+"Cht-Tg-FcP.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Season"; ObjectID = "CpY-TB-NzL"; */
+"CpY-TB-NzL.text" = "Season";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "CtU-bD-VPx"; */
+"CtU-bD-VPx.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "CtU-bD-VPx"; */
+"CtU-bD-VPx.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "DEl-zI-cnb"; */
+"DEl-zI-cnb.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DEl-zI-cnb"; */
+"DEl-zI-cnb.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "Ddb-3S-Z3e"; */
+"Ddb-3S-Z3e.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ddb-3S-Z3e"; */
+"Ddb-3S-Z3e.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "ANGRY"; ObjectID = "E6G-It-W5q"; */
+"E6G-It-W5q.configuration.title" = "ANGRY";
+
+/* Class = "UILabel"; text = "Add Improvement"; ObjectID = "EFB-yh-WSc"; */
+"EFB-yh-WSc.text" = "Add Improvement";
+
+/* Class = "UILabel"; text = "Optional"; ObjectID = "EPd-CM-5MS"; */
+"EPd-CM-5MS.text" = "Optional";
+
+/* Class = "UILabel"; text = " +4 "; ObjectID = "EiD-Yq-TPW"; */
+"EiD-Yq-TPW.text" = " +4 ";
+
+/* Class = "UITabBarItem"; title = "Notifications"; ObjectID = "EkI-69-jlG"; */
+"EkI-69-jlG.title" = "Notifications";
+
+/* Class = "UILabel"; text = "Two Things I Did Well :"; ObjectID = "FVS-13-4Ya"; */
+"FVS-13-4Ya.text" = "Two Things I Did Well :";
+
+/* Class = "UILabel"; text = "Upgrade to Premium"; ObjectID = "Fa3-6v-zar"; */
+"Fa3-6v-zar.text" = "Upgrade to Premium";
+
+/* Class = "UIButton"; configuration.title = "Next "; ObjectID = "FkV-Nc-S0J"; */
+"FkV-Nc-S0J.configuration.title" = "Next ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FkV-Nc-S0J"; */
+"FkV-Nc-S0J.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "Fpv-22-HFA"; */
+"Fpv-22-HFA.text" = "00:00:00";
+
+/* Class = "UILabel"; text = " "; ObjectID = "GFI-0U-ECF"; */
+"GFI-0U-ECF.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Season"; ObjectID = "GU3-2L-Nho"; */
+"GU3-2L-Nho.normalTitle" = "Season";
+
+/* Class = "UIButton"; configuration.title = "Update"; ObjectID = "GVN-qO-sLj"; */
+"GVN-qO-sLj.configuration.title" = "Update";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GVN-qO-sLj"; */
+"GVN-qO-sLj.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "My thoughts"; ObjectID = "Gw7-oh-ZP1"; */
+"Gw7-oh-ZP1.text" = "My thoughts";
+
+/* Class = "UILabel"; text = "Email "; ObjectID = "HAh-fo-gub"; */
+"HAh-fo-gub.text" = "Email ";
+
+/* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "HFt-Wz-4CX"; */
+"HFt-Wz-4CX.text" = "Privacy Policy";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "HQD-Wc-1zD"; */
+"HQD-Wc-1zD.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HQD-Wc-1zD"; */
+"HQD-Wc-1zD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "No notifications "; ObjectID = "HeR-pb-1rJ"; */
+"HeR-pb-1rJ.text" = "No notifications ";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "IIz-Qw-P6f"; */
+"IIz-Qw-P6f.text" = "Logout";
+
+/* Class = "UILabel"; text = "Optional"; ObjectID = "IW0-Sc-x3f"; */
+"IW0-Sc-x3f.text" = "Optional";
+
+/* Class = "UILabel"; text = "No notifications "; ObjectID = "J49-gL-7ze"; */
+"J49-gL-7ze.text" = "No notifications ";
+
+/* Class = "UIButton"; normalTitle = "Performance"; ObjectID = "J5I-Yf-NG4"; */
+"J5I-Yf-NG4.normalTitle" = "Performance";
+
+/* Class = "UIButton"; configuration.title = "FOCUSED"; ObjectID = "J6S-s4-Dpo"; */
+"J6S-s4-Dpo.configuration.title" = "FOCUSED";
+
+/* Class = "UILabel"; text = "No videos "; ObjectID = "JEZ-P2-4Jj"; */
+"JEZ-P2-4Jj.text" = "No videos ";
+
+/* Class = "UILabel"; text = "No subscription plan"; ObjectID = "JfH-ah-J4r"; */
+"JfH-ah-J4r.text" = "No subscription plan";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "JgM-zq-dsd"; */
+"JgM-zq-dsd.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JgM-zq-dsd"; */
+"JgM-zq-dsd.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Kn3-pD-bfR"; */
+"Kn3-pD-bfR.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Reset Password"; ObjectID = "KrP-uw-gwW"; */
+"KrP-uw-gwW.text" = "Reset Password";
+
+/* Class = "UIButton"; configuration.title = "HAPPY"; ObjectID = "KvY-Zx-Kfd"; */
+"KvY-Zx-Kfd.configuration.title" = "HAPPY";
+
+/* Class = "UILabel"; text = "Goals"; ObjectID = "LEo-Sl-oUf"; */
+"LEo-Sl-oUf.text" = "Goals";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "LWA-Iv-9Dn"; */
+"LWA-Iv-9Dn.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "LWA-Iv-9Dn"; */
+"LWA-Iv-9Dn.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Support"; ObjectID = "Lfs-8R-18f"; */
+"Lfs-8R-18f.normalTitle" = "Support";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "M0Q-K0-xdh"; */
+"M0Q-K0-xdh.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "M0Q-K0-xdh"; */
+"M0Q-K0-xdh.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "M2F-CL-8lH"; */
+"M2F-CL-8lH.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "M2F-CL-8lH"; */
+"M2F-CL-8lH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Audio name"; ObjectID = "MIM-AW-7PL"; */
+"MIM-AW-7PL.text" = "Audio name";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "MXc-Ib-mry"; */
+"MXc-Ib-mry.text" = "Support";
+
+/* Class = "UIButton"; configuration.title = "Reset"; ObjectID = "N5R-1C-f4M"; */
+"N5R-1C-f4M.configuration.title" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "N5R-1C-f4M"; */
+"N5R-1C-f4M.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = " "; ObjectID = "NCi-1x-FYc"; */
+"NCi-1x-FYc.text" = " ";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "NEp-bu-fZ0"; */
+"NEp-bu-fZ0.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NEp-bu-fZ0"; */
+"NEp-bu-fZ0.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Dream Season  "; ObjectID = "PsU-WY-fkw"; */
+"PsU-WY-fkw.normalTitle" = "Dream Season  ";
+
+/* Class = "UILabel"; text = "This subcription is auto-renewable"; ObjectID = "Q4d-kS-2UR"; */
+"Q4d-kS-2UR.text" = "This subcription is auto-renewable";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "Q7a-6Z-XWx"; */
+"Q7a-6Z-XWx.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Q7a-6Z-XWx"; */
+"Q7a-6Z-XWx.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Self-Talk "; ObjectID = "Qva-WO-7DO"; */
+"Qva-WO-7DO.normalTitle" = "Self-Talk ";
+
+/* Class = "UILabel"; text = "Post-Event"; ObjectID = "RDz-L3-db1"; */
+"RDz-L3-db1.text" = "Post-Event";
+
+/* Class = "UILabel"; text = "My Secondary Season Goal"; ObjectID = "S51-0F-Rlb"; */
+"S51-0F-Rlb.text" = "My Secondary Season Goal";
+
+/* Class = "UIButton"; normalTitle = "Visualize"; ObjectID = "S65-4m-Cc5"; */
+"S65-4m-Cc5.normalTitle" = "Visualize";
+
+/* Class = "UILabel"; text = "Add Performance"; ObjectID = "SoR-Za-hbd"; */
+"SoR-Za-hbd.text" = "Add Performance";
+
+/* Class = "UILabel"; text = "Daily Questions"; ObjectID = "TRz-kM-4v1"; */
+"TRz-kM-4v1.text" = "Daily Questions";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "TZn-2N-6yq"; */
+"TZn-2N-6yq.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TZn-2N-6yq"; */
+"TZn-2N-6yq.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "TaN-ki-oJz"; */
+"TaN-ki-oJz.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TaN-ki-oJz"; */
+"TaN-ki-oJz.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "No visualization"; ObjectID = "UOA-AU-y84"; */
+"UOA-AU-y84.text" = "No visualization";
+
+/* Class = "UILabel"; text = " "; ObjectID = "UfK-M9-Qrj"; */
+"UfK-M9-Qrj.text" = " ";
+
+/* Class = "UILabel"; text = "Season Goals"; ObjectID = "Uzp-VN-73b"; */
+"Uzp-VN-73b.text" = "Season Goals";
+
+/* Class = "UIButton"; normalTitle = "Season"; ObjectID = "VUQ-E3-gtF"; */
+"VUQ-E3-gtF.normalTitle" = "Season";
+
+/* Class = "UILabel"; text = " "; ObjectID = "VcS-0D-00O"; */
+"VcS-0D-00O.text" = " ";
+
+/* Class = "UILabel"; text = "Monthly"; ObjectID = "WS1-Xb-QhM"; */
+"WS1-Xb-QhM.text" = "Monthly";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "XCW-g9-PpO"; */
+"XCW-g9-PpO.text" = "Settings";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "XYr-xM-ENf"; */
+"XYr-xM-ENf.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XYr-xM-ENf"; */
+"XYr-xM-ENf.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "Xva-bJ-6ly"; */
+"Xva-bJ-6ly.normalTitle" = "Start";
+
+/* Class = "UILabel"; text = "Old Password "; ObjectID = "XzI-tc-1t5"; */
+"XzI-tc-1t5.text" = "Old Password ";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "YRx-da-cYl"; */
+"YRx-da-cYl.text" = "name";
+
+/* Class = "UILabel"; text = "My Primary Goal"; ObjectID = "Yes-VR-kRr"; */
+"Yes-VR-kRr.text" = "My Primary Goal";
+
+/* Class = "UILabel"; text = "2 months ago"; ObjectID = "Ykq-Cm-4yL"; */
+"Ykq-Cm-4yL.text" = "2 months ago";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "Z0E-PA-oy8"; */
+"Z0E-PA-oy8.text" = "Change Password";
+
+/* Class = "UIButton"; configuration.title = "BORED"; ObjectID = "ZFC-Mf-fSW"; */
+"ZFC-Mf-fSW.configuration.title" = "BORED";
+
+/* Class = "UILabel"; text = "In-Event"; ObjectID = "ZZk-U7-UyL"; */
+"ZZk-U7-UyL.text" = "In-Event";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "ZpH-Bt-m0J"; */
+"ZpH-Bt-m0J.title" = "Profile";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "Zpn-2v-e0R"; */
+"Zpn-2v-e0R.text" = "Notifications";
+
+/* Class = "UILabel"; text = "Edit Profile"; ObjectID = "ZsB-19-Vn2"; */
+"ZsB-19-Vn2.text" = "Edit Profile";
+
+/* Class = "UILabel"; text = "  "; ObjectID = "aOA-Sn-hQA"; */
+"aOA-Sn-hQA.text" = "  ";
+
+/* Class = "UILabel"; text = "Name "; ObjectID = "afP-dX-nwg"; */
+"afP-dX-nwg.text" = "Name ";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "aj7-jm-lgE"; */
+"aj7-jm-lgE.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "New Password "; ObjectID = "axX-KM-GLX"; */
+"axX-KM-GLX.text" = "New Password ";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "axp-F5-R46"; */
+"axp-F5-R46.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Confirm Password "; ObjectID = "b3s-Ec-aMM"; */
+"b3s-Ec-aMM.text" = "Confirm Password ";
+
+/* Class = "UILabel"; text = "Audio name"; ObjectID = "bJ5-sm-Puo"; */
+"bJ5-sm-Puo.text" = "Audio name";
+
+/* Class = "UIButton"; normalTitle = "Chat"; ObjectID = "bKq-ex-Koh"; */
+"bKq-ex-Koh.normalTitle" = "Chat";
+
+/* Class = "UILabel"; text = "Start"; ObjectID = "bbL-6b-JQn"; */
+"bbL-6b-JQn.text" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Season Goal  "; ObjectID = "bvP-Se-uss"; */
+"bvP-Se-uss.normalTitle" = "Season Goal  ";
+
+/* Class = "UILabel"; text = "Email "; ObjectID = "bwN-fV-FMZ"; */
+"bwN-fV-FMZ.text" = "Email ";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "c3O-NJ-1kB"; */
+"c3O-NJ-1kB.normalTitle" = "Cancel";
+
+/* Class = "UIButton"; configuration.title = "Reset"; ObjectID = "cJ8-7S-gTu"; */
+"cJ8-7S-gTu.configuration.title" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cJ8-7S-gTu"; */
+"cJ8-7S-gTu.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "cPy-7B-5Gk"; */
+"cPy-7B-5Gk.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cPy-7B-5Gk"; */
+"cPy-7B-5Gk.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Confirm Password "; ObjectID = "ca6-oe-LLr"; */
+"ca6-oe-LLr.text" = "Confirm Password ";
+
+/* Class = "UILabel"; text = "Sports"; ObjectID = "cd7-he-49Z"; */
+"cd7-he-49Z.text" = "Sports";
+
+/* Class = "UILabel"; text = "Review"; ObjectID = "ciy-zJ-Zxh"; */
+"ciy-zJ-Zxh.text" = "Review";
+
+/* Class = "UILabel"; text = "Dream Season"; ObjectID = "cmp-hW-cNg"; */
+"cmp-hW-cNg.text" = "Dream Season";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "csj-qd-Hmx"; */
+"csj-qd-Hmx.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "csj-qd-Hmx"; */
+"csj-qd-Hmx.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Review"; ObjectID = "d5z-Uo-DdQ"; */
+"d5z-Uo-DdQ.normalTitle" = "Review";
+
+/* Class = "UILabel"; text = "Email "; ObjectID = "dDz-eW-2iP"; */
+"dDz-eW-2iP.text" = "Email ";
+
+/* Class = "UIButton"; configuration.title = "Stop"; ObjectID = "dHW-Ka-SVl"; */
+"dHW-Ka-SVl.configuration.title" = "Stop";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dHW-Ka-SVl"; */
+"dHW-Ka-SVl.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = " "; ObjectID = "dgY-cc-OkY"; */
+"dgY-cc-OkY.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Support"; ObjectID = "e0V-oX-5YH"; */
+"e0V-oX-5YH.normalTitle" = "Support";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "e30-9T-6oS"; */
+"e30-9T-6oS.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "e30-9T-6oS"; */
+"e30-9T-6oS.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "eOL-1E-flE"; */
+"eOL-1E-flE.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Hourly rate"; ObjectID = "eUT-sF-YBd"; */
+"eUT-sF-YBd.text" = "Hourly rate";
+
+/* Class = "UIButton"; normalTitle = "Appointment"; ObjectID = "edr-LH-wGU"; */
+"edr-LH-wGU.normalTitle" = "Appointment";
+
+/* Class = "UILabel"; text = "Audio name"; ObjectID = "enH-Zo-vKe"; */
+"enH-Zo-vKe.text" = "Audio name";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password "; ObjectID = "etY-Wt-Gx3"; */
+"etY-Wt-Gx3.normalTitle" = "Forgot Password ";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "g21-9f-PV9"; */
+"g21-9f-PV9.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "g21-9f-PV9"; */
+"g21-9f-PV9.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Select language"; ObjectID = "gF8-Ai-7PT"; */
+"gF8-Ai-7PT.text" = "Select language";
+
+/* Class = "UILabel"; text = "Name "; ObjectID = "gYP-U6-AnT"; */
+"gYP-U6-AnT.text" = "Name ";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "gni-dQ-xYR"; */
+"gni-dQ-xYR.text" = "Confirm Password";
+
+/* Class = "UILabel"; text = "Enter your information below or login with another account "; ObjectID = "hAd-KW-Bed"; */
+"hAd-KW-Bed.text" = "Enter your information below or login with another account ";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "hDf-kn-aSX"; */
+"hDf-kn-aSX.configuration.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hDf-kn-aSX"; */
+"hDf-kn-aSX.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "hKf-LU-sn1"; */
+"hKf-LU-sn1.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hKf-LU-sn1"; */
+"hKf-LU-sn1.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "hTv-wR-w0r"; */
+"hTv-wR-w0r.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hTv-wR-w0r"; */
+"hTv-wR-w0r.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Audio not recorded yet"; ObjectID = "hUX-yN-Ene"; */
+"hUX-yN-Ene.text" = "Audio not recorded yet";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "hVf-Y3-SkC"; */
+"hVf-Y3-SkC.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hVf-Y3-SkC"; */
+"hVf-Y3-SkC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "No improvement added yet"; ObjectID = "iNR-c6-g24"; */
+"iNR-c6-g24.text" = "No improvement added yet";
+
+/* Class = "UILabel"; text = " +4 "; ObjectID = "iXi-BA-2eG"; */
+"iXi-BA-2eG.text" = " +4 ";
+
+/* Class = "UILabel"; text = "OTP"; ObjectID = "ihe-O9-aE7"; */
+"ihe-O9-aE7.text" = "OTP";
+
+/* Class = "UIButton"; configuration.title = "Change Password"; ObjectID = "ilP-FG-HKg"; */
+"ilP-FG-HKg.configuration.title" = "Change Password";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ilP-FG-HKg"; */
+"ilP-FG-HKg.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "My Primary Season Goal"; ObjectID = "jS9-cg-Zft"; */
+"jS9-cg-Zft.text" = "My Primary Season Goal";
+
+/* Class = "UILabel"; text = "No appointments"; ObjectID = "jb0-kx-wEd"; */
+"jb0-kx-wEd.text" = "No appointments";
+
+/* Class = "UIButton"; normalTitle = " PRO "; ObjectID = "kGf-yb-sq6"; */
+"kGf-yb-sq6.normalTitle" = " PRO ";
+
+/* Class = "UILabel"; text = "Performance"; ObjectID = "kQz-Wa-Xk0"; */
+"kQz-Wa-Xk0.text" = "Performance";
+
+/* Class = "UILabel"; text = "Appointment"; ObjectID = "kcN-el-Qqi"; */
+"kcN-el-Qqi.text" = "Appointment";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "kw9-cI-moL"; */
+"kw9-cI-moL.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Delete Account"; ObjectID = "kwy-HS-ISG"; */
+"kwy-HS-ISG.text" = "Delete Account";
+
+/* Class = "UIButton"; configuration.title = "Sign Up "; ObjectID = "lAc-kM-khl"; */
+"lAc-kM-khl.configuration.title" = "Sign Up ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lAc-kM-khl"; */
+"lAc-kM-khl.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Enter your new password"; ObjectID = "lCt-oc-3zo"; */
+"lCt-oc-3zo.text" = "Enter your new password";
+
+/* Class = "UILabel"; text = "Subscription Plans"; ObjectID = "lYI-WE-5I0"; */
+"lYI-WE-5I0.text" = "Subscription Plans";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "lZ6-e2-AXA"; */
+"lZ6-e2-AXA.text" = "00:00:00";
+
+/* Class = "UILabel"; text = " "; ObjectID = "lxM-3q-Vz1"; */
+"lxM-3q-Vz1.text" = " ";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "mF9-yh-80g"; */
+"mF9-yh-80g.text" = "Name";
+
+/* Class = "UILabel"; text = "Challange"; ObjectID = "mOs-8K-5cR"; */
+"mOs-8K-5cR.text" = "Challange";
+
+/* Class = "UILabel"; text = "\"Mental skills are trainable and can help improve soccer performance\""; ObjectID = "mYm-hO-yz3"; */
+"mYm-hO-yz3.text" = "\"Mental skills are trainable and can help improve soccer performance\"";
+
+/* Class = "UIButton"; configuration.title = "Play"; ObjectID = "mcy-aM-xyn"; */
+"mcy-aM-xyn.configuration.title" = "Play";
+
+/* Class = "UILabel"; text = "My Dream Season"; ObjectID = "nEj-Uc-0Kv"; */
+"nEj-Uc-0Kv.text" = "My Dream Season";
+
+/* Class = "UIButton"; normalTitle = "Season"; ObjectID = "nJJ-7y-XNm"; */
+"nJJ-7y-XNm.normalTitle" = "Season";
+
+/* Class = "UILabel"; text = "I feel"; ObjectID = "nz7-bu-k5p"; */
+"nz7-bu-k5p.text" = "I feel";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "oKk-yA-5mD"; */
+"oKk-yA-5mD.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Today's Plan"; ObjectID = "oQo-74-cGv"; */
+"oQo-74-cGv.text" = "Today's Plan";
+
+/* Class = "UILabel"; text = "Experience"; ObjectID = "odJ-sl-7YF"; */
+"odJ-sl-7YF.text" = "Experience";
+
+/* Class = "UILabel"; text = "Profile"; ObjectID = "owA-ws-pYR"; */
+"owA-ws-pYR.text" = "Profile";
+
+/* Class = "UILabel"; text = "Self-talk"; ObjectID = "pe0-mb-NQH"; */
+"pe0-mb-NQH.text" = "Self-talk";
+
+/* Class = "UIButton"; configuration.title = "Verify"; ObjectID = "pgg-3N-ecZ"; */
+"pgg-3N-ecZ.configuration.title" = "Verify";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pgg-3N-ecZ"; */
+"pgg-3N-ecZ.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "phD-IB-yVF"; */
+"phD-IB-yVF.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "phD-IB-yVF"; */
+"phD-IB-yVF.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Edit Profile"; ObjectID = "plW-JL-Ajh"; */
+"plW-JL-Ajh.text" = "Edit Profile";
+
+/* Class = "UILabel"; text = "Visualization"; ObjectID = "q11-Jj-FFc"; */
+"q11-Jj-FFc.text" = "Visualization";
+
+/* Class = "UILabel"; text = "Wellbeing"; ObjectID = "qN8-v7-6ra"; */
+"qN8-v7-6ra.text" = "Wellbeing";
+
+/* Class = "UILabel"; text = " "; ObjectID = "qX1-ij-AzW"; */
+"qX1-ij-AzW.text" = " ";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "r6D-9d-CJZ"; */
+"r6D-9d-CJZ.configuration.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "r6D-9d-CJZ"; */
+"r6D-9d-CJZ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Email "; ObjectID = "rNI-nv-cXO"; */
+"rNI-nv-cXO.text" = "Email ";
+
+/* Class = "UIButton"; configuration.title = "SAD"; ObjectID = "sBg-z0-K84"; */
+"sBg-z0-K84.configuration.title" = "SAD";
+
+/* Class = "UIButton"; configuration.title = "WORRIED"; ObjectID = "t91-uO-30p"; */
+"t91-uO-30p.configuration.title" = "WORRIED";
+
+/* Class = "UIButton"; normalTitle = "Goals"; ObjectID = "tIX-zS-EMR"; */
+"tIX-zS-EMR.normalTitle" = "Goals";
+
+/* Class = "UILabel"; text = "Verification"; ObjectID = "trW-cU-FmK"; */
+"trW-cU-FmK.text" = "Verification";
+
+/* Class = "UIButton"; configuration.title = "CALM"; ObjectID = "tto-s9-y3G"; */
+"tto-s9-y3G.configuration.title" = "CALM";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "tyy-xN-e8L"; */
+"tyy-xN-e8L.text" = "00:00:00";
+
+/* Class = "UILabel"; text = "Joined"; ObjectID = "uIh-iZ-6ON"; */
+"uIh-iZ-6ON.text" = "Joined";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "utJ-5H-0uh"; */
+"utJ-5H-0uh.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "utJ-5H-0uh"; */
+"utJ-5H-0uh.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "uw5-Cb-MXm"; */
+"uw5-Cb-MXm.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uw5-Cb-MXm"; */
+"uw5-Cb-MXm.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "ANNOYED"; ObjectID = "v0W-FK-T4k"; */
+"v0W-FK-T4k.configuration.title" = "ANNOYED";
+
+/* Class = "UILabel"; text = "Password "; ObjectID = "vFJ-Re-D95"; */
+"vFJ-Re-D95.text" = "Password ";
+
+/* Class = "UILabel"; text = "Improvement"; ObjectID = "vpX-QL-skt"; */
+"vpX-QL-skt.text" = "Improvement";
+
+/* Class = "UILabel"; text = "Role Model"; ObjectID = "wYW-UJ-wp3"; */
+"wYW-UJ-wp3.text" = "Role Model";
+
+/* Class = "UILabel"; text = "Completed"; ObjectID = "wuH-F9-9fS"; */
+"wuH-F9-9fS.text" = "Completed";
+
+/* Class = "UILabel"; text = " Forgot Password? "; ObjectID = "x1l-9Y-ekZ"; */
+"x1l-9Y-ekZ.text" = " Forgot Password? ";
+
+/* Class = "UILabel"; text = "Check your email, we've sent you the OTP at"; ObjectID = "xXQ-J0-rFq"; */
+"xXQ-J0-rFq.text" = "Check your email, we've sent you the OTP at";
+
+/* Class = "UILabel"; text = " +4 "; ObjectID = "xZV-zJ-OzZ"; */
+"xZV-zJ-OzZ.text" = " +4 ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "xan-dp-OPq"; */
+"xan-dp-OPq.text" = " ";
+
+/* Class = "UIButton"; configuration.title = "Stop"; ObjectID = "y5B-29-7WC"; */
+"y5B-29-7WC.configuration.title" = "Stop";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "y5B-29-7WC"; */
+"y5B-29-7WC.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = " Back"; ObjectID = "yNQ-98-kCQ"; */
+"yNQ-98-kCQ.configuration.title" = " Back";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yNQ-98-kCQ"; */
+"yNQ-98-kCQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = " +4 "; ObjectID = "yW9-jG-AGc"; */
+"yW9-jG-AGc.text" = " +4 ";
+
+/* Class = "UILabel"; text = "Four Things I Did Well :"; ObjectID = "yhY-Tr-qqZ"; */
+"yhY-Tr-qqZ.text" = "Four Things I Did Well :";
+
+/* Class = "UILabel"; text = "Self-Talk Setup"; ObjectID = "zOW-Ee-aev"; */
+"zOW-Ee-aev.text" = "Self-Talk Setup";
+
+/* Class = "UILabel"; text = " "; ObjectID = "zvD-K7-7Li"; */
+"zvD-K7-7Li.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Self Talk Setup  "; ObjectID = "zvN-GW-06r"; */
+"zvN-GW-06r.normalTitle" = "Self Talk Setup  ";
+
+/* Class = "UILabel"; text = "No performance added yet"; ObjectID = "zvY-p7-KHY"; */
+"zvY-p7-KHY.text" = "No performance added yet";
