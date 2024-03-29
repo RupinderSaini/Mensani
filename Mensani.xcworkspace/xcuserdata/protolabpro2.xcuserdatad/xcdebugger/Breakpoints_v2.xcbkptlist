@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "47B58D13-9A73-4DCD-81BB-94638A944DE0"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE33300C-7F67-4812-877C-C0E22DB4B278"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mensani/Therapist/ReviewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "btnSave(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9AC103E-F69D-43F2-9321-D4F17B78039E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mensani/Start/SelfTalk/SelfTalkController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "SelfTalkController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D0A44EC-CA06-4428-A93B-721C0DEAA355"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mensani/Start/Performance/PerformController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "btnSave(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56959B68-868B-4091-AFD4-056A48714FD8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mensani/Start/SelfTalk/SelfTalkController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "56959B68-868B-4091-AFD4-056A48714FD8 - 6e704e0cfde3c3da"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mensani.SelfTalkController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Mensani.SelfTalkController"
+                  moduleName = "Mensani"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/protolabpro2/Desktop/iosProject/LatestMensani/Mensani/Mensani/Start/SelfTalk/SelfTalkController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "56959B68-868B-4091-AFD4-056A48714FD8 - 9c3e6fd20665d946"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mensani.SelfTalkController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Mensani.SelfTalkController"
+                  moduleName = "Mensani"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/protolabpro2/Desktop/iosProject/LatestMensani/Mensani/Mensani/Start/SelfTalk/SelfTalkController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "56959B68-868B-4091-AFD4-056A48714FD8 - d2bb281b4165cb8d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mensani.SelfTalkController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Mensani.SelfTalkController&gt;"
+                  moduleName = "Mensani"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/protolabpro2/Desktop/iosProject/LatestMensani/Mensani/Mensani/Start/SelfTalk/SelfTalkController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "56959B68-868B-4091-AFD4-056A48714FD8 - a2ca290c4d30ef37"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mensani.SelfTalkController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Mensani.SelfTalkController&gt;"
+                  moduleName = "Mensani"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/protolabpro2/Desktop/iosProject/LatestMensani/Mensani/Mensani/Start/SelfTalk/SelfTalkController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "56959B68-868B-4091-AFD4-056A48714FD8 - 398aa075b8cb0a1c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mensani.SelfTalkController.__deallocating_deinit"
+                  moduleName = "Mensani"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/protolabpro2/Desktop/iosProject/LatestMensani/Mensani/Mensani/Start/SelfTalk/SelfTalkController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66C34854-58A4-451C-BC5D-091D12FC8224"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mensani/Therapist/TherapistVideoController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

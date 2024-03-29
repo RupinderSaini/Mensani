@@ -1,0 +1,6 @@
+framework module Pods_Mensani {
+  umbrella header "Pods-Mensani-umbrella.h"
+
+  export *
+  module * { export * }
+}
