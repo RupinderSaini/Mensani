@@ -10,6 +10,7 @@ import Alamofire
 
 class ProfileController: UIViewController , UITextFieldDelegate{
     
+    @IBOutlet weak var txtProfile: UILabel!
     @IBOutlet weak var txtLanguage: UILabel!
     @IBOutlet weak var vLanguage: UIView!
     @IBOutlet weak var txtJoined: UILabel!
@@ -71,7 +72,7 @@ class ProfileController: UIViewController , UITextFieldDelegate{
         setBorder10(viewName: btnSupport, radius: 15)
         stackBtn.layer.cornerRadius=20
         stackBtn.clipsToBounds=true
-        viewBottom(viewBtn: viewBtn)
+//        viewBottom(viewBtn: viewBtn)
         
         //        btnPro.layer.cornerRadius=8
         //        btnPro.clipsToBounds=true
@@ -126,6 +127,7 @@ class ProfileController: UIViewController , UITextFieldDelegate{
         txtAppointmnet.text =  LocalisationManager.localisedString("appointments")
         //        txtUpgrade.text =  LocalisationManager.localisedString("upgrade")
         txtLogout.text =  LocalisationManager.localisedString("logout")
+        txtProfile.text =  LocalisationManager.localisedString("profile")
         txtSubs.text =  LocalisationManager.localisedString("subscription")
         txtDelete.text =  LocalisationManager.localisedString("del_account")
         //        txtDelete.text =  LocalisationManager.localisedString("del_account")
@@ -208,7 +210,7 @@ class ProfileController: UIViewController , UITextFieldDelegate{
         
         if(self.currentReachabilityStatus != .notReachable)
         {
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "book") as? AppointListController
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "appointlist") as? AppointmentListController
             self.navigationController?.pushViewController(vc!, animated: true)
         }else{
             alertInternet()
@@ -296,7 +298,7 @@ class ProfileController: UIViewController , UITextFieldDelegate{
                 UserDefaults.standard.setValue("0", forKey: Constant.IS_LOGGEDIN)
                 //
                 let domain = Bundle.main.bundleIdentifier!
-                //                UserDefaults.standard.removePersistentDomain(forName: domain)
+                                UserDefaults.standard.removePersistentDomain(forName: domain)
                 UserDefaults.standard.synchronize()
                 self.navigationController?.popToRootViewController(animated: true)
                 //                self.tabBarController?.selectedIndex = 0
@@ -346,7 +348,7 @@ class ProfileController: UIViewController , UITextFieldDelegate{
         print(header)
         let param = ["athlete_id": apiToken]
         print(param)
-        APIManager.shared.requestService(withURL: Constant.deleteAPI, method: .post, param: param , header: header, viewController: self) { (json) in
+        APIManager.shared.requestService(withURL: Constant.logoutAPI, method: .post, param: param , header: header, viewController: self) { (json) in
             print(json)
             if("\(json["status"])" == "1")
             {
@@ -365,10 +367,11 @@ class ProfileController: UIViewController , UITextFieldDelegate{
     func deleteApi()
     {
         let apiToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)
+        let apiTokenn = UserDefaults.standard.string(forKey: Constant.USER_UNIQUE_ID)
         let header : HTTPHeaders =
         [Constant.AUTHORIZATION : apiToken!]
         print(header)
-        let param = ["athlete_id": apiToken]
+        let param = ["athlete_id": apiTokenn!]
         print(param)
         APIManager.shared.requestService(withURL: Constant.deleteAPI, method: .post, param: param , header: header, viewController: self) { (json) in
             print(json)
@@ -377,7 +380,7 @@ class ProfileController: UIViewController , UITextFieldDelegate{
                 UserDefaults.standard.setValue("0", forKey: Constant.IS_LOGGEDIN)
                 //
                 let domain = Bundle.main.bundleIdentifier!
-                //                UserDefaults.standard.removePersistentDomain(forName: domain)
+                                UserDefaults.standard.removePersistentDomain(forName: domain)
                 UserDefaults.standard.synchronize()
                 self.navigationController?.popToRootViewController(animated: true)
             }

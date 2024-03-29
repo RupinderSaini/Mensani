@@ -14,6 +14,9 @@ class RecordController: UIViewController , AVAudioRecorderDelegate, AVAudioPlaye
     @IBOutlet var record_btn_ref: UIButton!
     @IBOutlet var play_btn_ref: UIButton!
 
+    @IBOutlet weak var txtStart: UILabel!
+    @IBOutlet weak var txtStartRecord: UILabel!
+    @IBOutlet weak var vTheme: UIView!
     @IBOutlet weak var txtAudio: UILabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBAction func btnsave(_ sender: Any) {
@@ -46,29 +49,46 @@ class RecordController: UIViewController , AVAudioRecorderDelegate, AVAudioPlaye
         edName.delegate = self
         indicator.isHidden = true
         check_record_permission()
-       
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+        
         setBorder10(viewName: play_btn_ref, radius: 10)
         setBorder10(viewName: btnSave, radius: 10)
-//        setBorder10(viewName: record_btn_ref, radius: 10)
+        setBorder10(viewName: vInner, radius: 15)
+        setBorder10(viewName: vTheme, radius: 15)
+       
+        edName.layer.cornerRadius = 8
+        edName.layer.borderWidth = 0.5
+        edName.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        setBorder10(viewName: vRecord, radius: 10)
-        setBorder10(viewName: edName, radius: 10)
+        vRecord.layer.cornerRadius = 8
+        vRecord.layer.borderWidth = 0.5
+        vRecord.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        
+        
+//        setBorder10(viewName: vRecord, radius: 10)
+//        setBorder10(viewName: edName, radius: 10)
         setBorder10(viewName: vInner, radius: 10)
         btnSave.isHidden = true
         play_btn_ref.isHidden = true
         edName.setLeftPaddingPoints(10)
         edName.setRightPaddingPoints(10)
-      
-        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+        edName.placeholder = LocalisationManager.localisedString("enter_audio_namee")
+       
         record_btn_ref.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        vTheme.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         edName.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        indicator.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        indicator.color = hexStringToUIColor(hex: color ?? "#fff456")
         btnSave.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         recordingTimeLabel.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+        txtAudio.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtStart.textColor = hexStringToUIColor(hex: color ?? "#fff456")
        
         txtAudio.text = LocalisationManager.localisedString("audio_name")
-        record_btn_ref.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
+        record_btn_ref.setTitle(LocalisationManager.localisedString("record"), for: .normal)
         play_btn_ref.setTitle(LocalisationManager.localisedString("stop"), for: .normal)
         btnSave.setTitle(LocalisationManager.localisedString("save"), for: .normal)
+       
     }
     
     func getValues()

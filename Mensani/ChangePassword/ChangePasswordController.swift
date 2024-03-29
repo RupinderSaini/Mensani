@@ -46,13 +46,22 @@ class ChangePasswordController: UIViewController {
     func initViews()
     {
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnChange.setTitle(LocalisationManager.localisedString("change_pass"), for: .normal)
         txtChange.text = LocalisationManager.localisedString("change_pass")
         txtConfirm.text = LocalisationManager.localisedString("confirm_new_pass")
         txtNew.text = LocalisationManager.localisedString("new_pass")
         txtOld.text = LocalisationManager.localisedString("old_pass")
         
+        setBorder10(viewName: btnChange, radius: 23)
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+        btnChange.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtNew.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtOld.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtConfirm.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+        edNewPassword.tintColor = .white
+        edCPassword.tintColor = .white
+        edOldPassword.tintColor = .white
         
         setupToHideKeyboardOnTapOnView()
         vCPassword.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)

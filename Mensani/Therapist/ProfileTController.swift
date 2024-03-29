@@ -23,6 +23,21 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
     var amount = ""
     var arrOfReview : [TherapistReview] = []
   
+    @IBOutlet weak var vAlpha: UIView!
+    @IBOutlet weak var txtInfo: UILabel!
+    @IBOutlet weak var btnClose: UIButton!
+    @IBAction func btnClose(_ sender: Any) {
+        vInfo.isHidden = true
+        vAlpha.isHidden = true
+    }
+    @IBOutlet weak var txtTrainerinfo: UILabel!
+    @IBOutlet weak var vInfo: UIView!
+    @IBOutlet weak var btnInfo: UIButton!
+    @IBAction func btnInfo(_ sender: Any) {
+        vInfo.isHidden = false
+        vAlpha.isHidden = false
+    }
+    @IBOutlet weak var txtSport: UILabel!
     @IBOutlet weak var btnBack: UIButton!
     
     @IBOutlet weak var btnVideo: UIButton!
@@ -48,6 +63,7 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
     @IBOutlet weak var btnReview: UIButton!
     @IBOutlet weak var btnChat: UIButton!
     
+    @IBOutlet weak var txtPerQuote: UILabel!
     @IBAction func btnChat(_ sender: Any) {
         if(self.currentReachabilityStatus != .notReachable)
         {
@@ -109,7 +125,12 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        self.btnReview.isEnabled = false
+        self.btnReview.alpha = 0.3
+        
+        vInfo.isHidden = true
+        vAlpha.isHidden = true
         let nib2 = ReviewCell.nib
         tableView.register(nib2, forCellReuseIdentifier:ReviewCell.identifier)
         tableView.delegate = self
@@ -119,13 +140,13 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
         setBorder10(viewName: yExp, radius: 8)
         setBorder10(viewName: vYrs, radius: 8)
         setBorder10(viewName: vActive, radius: 8)
+        setBorder10(viewName: vInfo, radius: 8)
         setBorder10(viewName: btnAppointment, radius: 10)
 //        setBorder10(viewName: btnChat, radius: 10)
         setBorder10(viewName: btnReview, radius: 10)
         btnBack.layer.cornerRadius = 8
         setLanguage()
-//      
-       
+
     }
     
     func setLanguage()
@@ -136,22 +157,28 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
         btnAppointment.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnReview.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         btncall.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        btnInfo.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnChat.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        btnClose.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnVideo.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtSport.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtTrainerinfo.textColor = hexStringToUIColor(hex: color ?? "#fff456")
         yExp.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         vYrs.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         vActive.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
     
-        
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnChat.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btncall.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
+        btnClose.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
+        btnInfo.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnVideo.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnAppointment.setTitle(LocalisationManager.localisedString("appointment"), for: .normal)
         btnReview.setTitle(LocalisationManager.localisedString("review"), for: .normal)
         lblComp.text   = LocalisationManager.localisedString("comp")
         lblExperience.text   = LocalisationManager.localisedString("exp")
         lblHourly.text  = LocalisationManager.localisedString("act_clients")
+        txtTrainerinfo.text  = LocalisationManager.localisedString("trainer_info")
         
     }
     
@@ -198,7 +225,7 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
         let lang = LocalData.getLanguage(LocalData.language)
         let param = ["therapist_id": strId , "lang" : lang]
         APIManager.shared.requestService(withURL: Constant.therapistProfileAPI, method: .post, param: param , header: header, viewController: self) { (json) in
-            print(json)
+            debugPrint(json)
             if("\(json["status"])" == "1")
             {
                 do
@@ -206,7 +233,16 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
                     let data = try json.rawData(options: .prettyPrinted)
                     let model = try JSONDecoder().decode(TherapistInfoResponse.self, from: data)
                     self.arrOfReview = model.data.therapistReview
-                
+                    if model.data.isActive == 1
+                    {
+                        self.btnReview.isEnabled = true
+                        self.btnReview.alpha = 1
+                    }
+                    else
+                    {
+                        self.btnReview.isEnabled = false
+                        self.btnReview.alpha = 0.3
+                    }
                     self.setData(data:  model.data.therapistProfile)
 
                     self.tableView.reloadData()
@@ -230,7 +266,7 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
     func setData( data : TherapistProfile)
     {
         amount = data.hourlyRate.description
-        
+      
         strPhone = data.phone
         strName = data.name
         
@@ -239,8 +275,13 @@ class ProfileTController: UIViewController , UITableViewDelegate, UITableViewDat
         txtEdu.text = data.degree
         
         txtExperi.text = data.experience
-        txtClient.text = "$" + data.hourlyRate.description
+        txtInfo.text = data.bio
+        txtClient.text =  data.hourlyRate.description
         txtComplete.text = data.completed
+        txtPerQuote.text  = data.personalQuote
+        txtSport.text = data.sport
+        
+     
         
         let processor = DownsamplingImageProcessor(size:imgProfile.bounds.size)
                      |> RoundCornerImageProcessor(cornerRadius: 2)

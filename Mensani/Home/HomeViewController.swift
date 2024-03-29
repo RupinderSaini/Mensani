@@ -62,16 +62,17 @@ class HomeViewController: UIViewController {
         setBorder10(viewName: btnStart, radius: 15)
         setBorder10(viewName: btnSeason, radius: 15)
         setBorder10(viewName: btnSupport, radius: 15)
-        setBorder10(viewName: vToday, radius: 10)
+//        setBorder10(viewName: vToday, radius: 10)
        
         stackBtn.layer.cornerRadius=20
         stackBtn.clipsToBounds=true
-        viewBottom(viewBtn: viewBtn)
+//        viewBottom(viewBtn: viewBtn)
         
         setProgressView(slider: pWeekly , max: 30.05)
         setProgressView(slider: pMonthly, max: 100.05)
         setProgressView(slider: pDaily, max: 10.05)
       
+        txtAnswer.text = LocalisationManager.localisedString("blank")
         btnStart.setTitle(LocalisationManager.localisedString("event"), for: .normal)
         btnSeason.setTitle(LocalisationManager.localisedString("season"), for: .normal)
         btnSupport.setTitle(LocalisationManager.localisedString("support"), for: .normal)
@@ -81,9 +82,9 @@ class HomeViewController: UIViewController {
         monthly.text =    LocalisationManager.localisedString("month")
         
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
-        daily.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        weekly.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        monthly.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        daily.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        weekly.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        monthly.textColor = hexStringToUIColor(hex: color ?? "#fff456")
         
 //        pWeekly.trackFillColor = hexStringToUIColor(hex: color ?? "#fff456")
 //        pDaily.trackFillColor = hexStringToUIColor(hex: color ?? "#fff456")
@@ -104,9 +105,9 @@ class HomeViewController: UIViewController {
         let apiToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)
         let header : HTTPHeaders =
         [Constant.AUTHORIZATION : apiToken!]
-        
+        let lang = LocalData.getLanguage(LocalData.language)
         let strAPIToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)!
-        let parameters = ["token" : strAPIToken]
+        let parameters = ["token" : strAPIToken , "lang" : lang]
         
         print("parameters",parameters)
         APIManager.shared.requestService(withURL: Constant.homeAPI, method: .post, param: parameters, header: header, viewController: self) { (json) in
@@ -260,20 +261,30 @@ class HomeViewController: UIViewController {
         let sid =   model["data"]["user_profile"]["subscription_id"].description
         let spid =   model["data"]["user_profile"]["sport_id"].description
         let tid =   model["data"]["user_profile"]["team_name"].description
+        let teamType =   model["data"]["visibility"].description
         
         UserDefaults.standard.set(teamColor, forKey: Constant.TEAMCOLOR)
+        UserDefaults.standard.set(teamType, forKey: Constant.TEAM_TYPE)
         UserDefaults.standard.set(name, forKey: Constant.NAME)
         UserDefaults.standard.set(email, forKey: Constant.EMAIL)
         UserDefaults.standard.set(joinDate, forKey: Constant.TIME_JOINED)
         UserDefaults.standard.set(sports, forKey: Constant.SPORTS)
         UserDefaults.standard.set(id, forKey: Constant.USER_UNIQUE_ID)
-        UserDefaults.standard.set(sid, forKey: Constant.SUBSCRIPTION_ID)
+
         UserDefaults.standard.set(spid, forKey: Constant.SPORTS_ID)
         UserDefaults.standard.set(tid, forKey: Constant.TEAM)
+        if sid == ""
+        {
+            UserDefaults.standard.set("0", forKey: Constant.SUBSCRIPTION_ID)
+        }
+        else
+        {
+            UserDefaults.standard.set(sid, forKey: Constant.SUBSCRIPTION_ID)
+        }
 //        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
-        self.daily.textColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
-        self.weekly.textColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
-        self.monthly.textColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
+//        self.daily.textColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
+//        self.weekly.textColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
+//        self.monthly.textColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
         
 //        pWeekly.trackFillColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
 //        pDaily.trackFillColor = hexStringToUIColor(hex: teamColor ?? "#fff456")
@@ -285,7 +296,7 @@ class HomeViewController: UIViewController {
             UserDefaults.standard.set("\(model["data"]["self_talk"]["role_model"])", forKey: Constant.ROLE_MODEL)
             UserDefaults.standard.set("\(model["data"]["self_talk"]["image"])", forKey: Constant.ROLE_IMAGE)
             UserDefaults.standard.set("\(model["data"]["self_talk"]["challenge"])", forKey: Constant.CHALLENGE)
-            UserDefaults.standard.set("\(model["data"]["self_talk"]["recording"])", forKey: Constant.RECORDING)
+            UserDefaults.standard.set("\(model["data"]["self_talk"]["role_model_traits"])", forKey: Constant.RECORDING)
         }
         else
         {
@@ -319,10 +330,33 @@ class HomeViewController: UIViewController {
         txtWeekly.text = "\(weekly)/30"
         txtMonthly.text = "\(monthly)/100"
        print(day)
-        pDaily.endPointValue = CGFloat((day as NSString).doubleValue)
-//        pDaily.endPointValue = CGFloat(9.9)
-        pMonthly.endPointValue = CGFloat((monthly as NSString).doubleValue)
-        pWeekly.endPointValue = CGFloat((weekly as NSString).doubleValue)
+        if Int(day)! > 10
+        {
+            pDaily.endPointValue = 10
+        }
+        else
+        {
+            pDaily.endPointValue = CGFloat((day as NSString).doubleValue)
+        }
+
+        if Int(weekly)! > 30
+        {
+            pWeekly.endPointValue = 30
+        }
+        else
+        {
+            pWeekly.endPointValue = CGFloat((weekly as NSString).doubleValue)
+        }
+        
+        if Int(weekly)! > 100
+        {
+            pMonthly.endPointValue = 100
+        }
+        else
+        {
+            pMonthly.endPointValue = CGFloat((monthly as NSString).doubleValue)
+        }
+            
 //        pWeekly.endPointValue = CGFloat(("23" as NSString).doubleValue)
      
         pDaily.isEnabled = false

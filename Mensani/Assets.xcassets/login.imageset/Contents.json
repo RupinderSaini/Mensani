@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "login.png",
+      "filename" : "Athlete-Login.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "login 1.png",
+      "filename" : "Athlete-Login 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "login 2.png",
+      "filename" : "Athlete-Login 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

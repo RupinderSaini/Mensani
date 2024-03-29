@@ -9,6 +9,11 @@ import UIKit
 
 class StartGoalsController: UIViewController, SeasonDelegate {
    
+    @IBAction func btnClear(_ sender: Any) {
+        edPrimary.text =  " "
+        edSecondary.text = " "
+    }
+    @IBOutlet weak var btnClear: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var txtGoals: UILabel!
     @IBOutlet weak var txtSec: UILabel!
@@ -57,20 +62,29 @@ class StartGoalsController: UIViewController, SeasonDelegate {
         let primaryGoal = UserDefaults.standard.string(forKey: Constant.START_PRIMARY_GOAL)
         let secondGoal = UserDefaults.standard.string(forKey: Constant.START_SECONDARY_GOAL)
         
+        btnClear.isHidden = true
         edPrimary.text = primaryGoal
         edSecondary.text = secondGoal
-        
+        if edPrimary.text.count >  0
+        {
+            btnClear.isHidden = false
+        }
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
         btnSave.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
        
-        txtSec.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtPrim.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtSec.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtPrim.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        edPrimary.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        edSecondary.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        
+        edPrimary.tintColor = .white
+        edSecondary.tintColor = .white
         
         txtPrim.text = LocalisationManager.localisedString("primary_goal")
         txtSec.text = LocalisationManager.localisedString("second_goal")
         txtGoals.text = LocalisationManager.localisedString("goals")
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnSave.setTitle(LocalisationManager.localisedString("save"), for: .normal)
     
     }

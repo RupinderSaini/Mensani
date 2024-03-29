@@ -8,7 +8,7 @@
 import UIKit
 import LZViewPager
 
-class PerfromImproveController: UIViewController , LZViewPagerDelegate, LZViewPagerDataSource  {
+class AppointmentListController: UIViewController , LZViewPagerDelegate, LZViewPagerDataSource  {
     
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var txtSupport: UILabel!
@@ -24,15 +24,15 @@ class PerfromImproveController: UIViewController , LZViewPagerDelegate, LZViewPa
         viewPager.dataSource = self
         viewPager.delegate = self
         viewPager.hostController = self
-      
+        txtSupport.text = LocalisationManager.localisedString("appointment")
         btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
-        txtSupport.text = LocalisationManager.localisedString("performance")
-        let vc1 =   storyboard?.instantiateViewController(withIdentifier: "performance")
-        vc1!.title = LocalisationManager.localisedString("performance")
+        txtSupport.text = LocalisationManager.localisedString("appointment")
+        let vc1 =   storyboard?.instantiateViewController(withIdentifier: "book")
+        vc1!.title = LocalisationManager.localisedString("upcoming")
 //        let vc2 =  storyboard?.instantiateViewController(withIdentifier: "men")
 //        vc2!.title = LocalisationManager.localisedString("back")
-        let vc3 =  storyboard?.instantiateViewController(withIdentifier: "improve")
-        vc3!.title = LocalisationManager.localisedString("post_imp")
+        let vc3 =  storyboard?.instantiateViewController(withIdentifier: "bookpast")
+        vc3!.title = LocalisationManager.localisedString("Past")
        
         subControllers.append(vc1!)
 //        subControllers.append(vc2!)
@@ -49,24 +49,28 @@ class PerfromImproveController: UIViewController , LZViewPagerDelegate, LZViewPa
     
     func button(at index: Int) -> UIButton {
         let button = UIButton()
-                button.setTitleColor(UIColor.black, for: .normal)
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-                return button
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.setBackgroundImage(UIImage.imageWithColor(color: UIColor.black), for: .normal)
+        button.setBackgroundImage(UIImage.imageWithColor(color: hexStringToUIColor(hex: color ?? "#fff456")), for: .selected)
+        button.setTitleColor(UIColor.white, for: .normal)
+//        button.setTitleColor(UIColor.white, for: .selected)
+        return button
     }
     
     func numberOfItems() -> Int {
         return self.subControllers.count
     }
     
-    func didSelectButton(at index: Int) {
-        print(index)
-        if index == 0
-        {
-            txtSupport.text = LocalisationManager.localisedString("performance")
-        }
-        else
-        {
-            txtSupport.text = LocalisationManager.localisedString("post_imp")
-        }
-    }
+//    func didSelectButton(at index: Int) {
+//        print(index)
+//        if index == 0
+//        {
+//
+//        }
+//        else
+//        {
+//            txtSupport.text = LocalisationManager.localisedString("post_imp")
+//        }
+//    }
 }

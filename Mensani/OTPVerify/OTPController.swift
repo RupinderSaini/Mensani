@@ -13,8 +13,6 @@ class OTPController : UIViewController  ,  OTPValidationDelegate , UITextFieldDe
     @IBOutlet weak var txtCheckEmail: UILabel!
     @IBOutlet weak var txtVerification: UILabel!
     
-    
-    
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var txtEmail: UILabel!
     var resetVM = OTPViewModel()
@@ -49,18 +47,20 @@ class OTPController : UIViewController  ,  OTPValidationDelegate , UITextFieldDe
     var team = ""
     var token = ""
     var strOTP = ""
+    var teamToken = ""
+    var teamType : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupToHideKeyboardOnTapOnView()
 
         txtEmail.text = strEmail
-        
+        print(teamType)
         txtOTP.text = LocalisationManager.localisedString("otp")
         txtVerification.text = LocalisationManager.localisedString("verification")
         txtCheckEmail.text = LocalisationManager.localisedString("otp_txt")
         btnVerify.setTitle(LocalisationManager.localisedString("verify"), for: .normal)
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         
         resetVM.delegate = self
         edOtp.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
@@ -68,7 +68,7 @@ class OTPController : UIViewController  ,  OTPValidationDelegate , UITextFieldDe
         edOtp.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     @objc func textFieldDidChange(_ textField: UITextField) {
-        setYellow(string: StringConstant.EMAIL_HEADING, textField: txtOTP)
+        setYellow(string: LocalisationManager.localisedString("otp"), textField: txtOTP)
     }
  
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -117,9 +117,20 @@ class OTPController : UIViewController  ,  OTPValidationDelegate , UITextFieldDe
     func signUpAPICALL()
     {
         let lang = LocalData.getLanguage(LocalData.language)
-
-        let param =
-        ["email": strEmail , "password":password, "name" : name, "fcm_token" : token , "sport_id" : sports, "team_id" : team,  "device_type" : "0" , "lang" : lang]
+        var param : [String : String]
+        print(teamType)
+        if teamType!
+        {
+            param =
+            ["email": strEmail , "password":password, "name" : name, "fcm_token" : token , "sport_id" : sports, "team_id" : team,  "device_type" : "0" , "lang" : lang]
+          
+        }
+        else
+        {
+            param =
+            ["email": strEmail , "password":password, "name" : name, "fcm_token" : token ,  "token" : teamToken,  "device_type" : "0" , "lang" : lang]
+           
+        }
         print(param)
         APIManager.shared.requestService(withURL: Constant.signUpAPI, method: .post, param: param , viewController: self) {  (json) in
          print(json)

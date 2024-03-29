@@ -124,7 +124,7 @@ class PerformanceController: UIViewController ,  UITableViewDelegate, UITableVie
         
         btnSave.backgroundColor =  hexStringToUIColor(hex: color ?? "#fff456")
         edPerformace.tintColor =  hexStringToUIColor(hex: color ?? "#fff456")
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         txtFour.text = LocalisationManager.localisedString("did_well")
         txtTwo.text = LocalisationManager.localisedString("imp_two")
         

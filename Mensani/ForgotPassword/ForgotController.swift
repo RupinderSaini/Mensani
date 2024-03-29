@@ -41,7 +41,7 @@ class ForgotController: UIViewController , ForgotValidationDelegate , UITextFiel
         txtForgotPassword.text = LocalisationManager.localisedString("forget")
         txtEnter.text = LocalisationManager.localisedString("forget_txt")
         txtEmail.text = LocalisationManager.localisedString("Email")
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnForgot.setTitle(LocalisationManager.localisedString("next"), for: .normal)
         forgetVM.delegate = self
         edEmail.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)

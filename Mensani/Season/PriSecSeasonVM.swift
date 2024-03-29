@@ -17,6 +17,9 @@ class PriSecSeasonVM : NSObject
     // call from 0 = season goal, 1 = start goal
     func sendValues(primary : String? , secondary : String? , controller : UIViewController, callFrom : Bool)
     {
+        var valueChanged = false
+        var valueChangedSecond = false
+        
         guard let pri = primary else
         {
             return
@@ -25,27 +28,56 @@ class PriSecSeasonVM : NSObject
         {
             return
         }
-        print(!((pri.count>1) || (sec.count>1)))
-        if !((pri.count>1) || (sec.count>1))
+        let primaryGoal = UserDefaults.standard.string(forKey: Constant.START_PRIMARY_GOAL)
+        let secondGoal = UserDefaults.standard.string(forKey: Constant.START_SECONDARY_GOAL)
+        if !((pri.count>1) && (sec.count>1))
         {
             delegate?.sendFailure(handleString:  LocalisationManager.localisedString("enter_any_goal_error"), type: 0)
         }
+      
          else
          {
-             addAPICALL(pri :pri, sec : sec ,  controller : controller, callFrom : callFrom)
+            if ((primaryGoal == primary) && (secondGoal == secondary))
+             {
+                print("nmnmnmnm")
+                print((primaryGoal == primary) && (secondGoal == secondary))
+                valueChanged = false
+//                addAPICALL(pri :pri, sec : sec ,  controller : controller, callFrom : callFrom)
+            }
+             else
+             {
+               var type = 0
+                 if (primaryGoal != primary)
+                  {
+                   valueChanged = true
+                 }
+                  if  (secondGoal != secondary)
+                  {
+                     valueChangedSecond = true
+                  }
+                 var final = valueChanged && valueChangedSecond
+                    print(final)
+                 if final
+                 {
+                   type = 1
+                 }
+                
+                 addAPICALL(pri :pri, sec : sec ,  controller : controller, callFrom : callFrom , valueChanged : type.description)
+                
+             }
          }
      }
     
     
-    func addAPICALL(pri : String , sec : String , controller : UIViewController , callFrom : Bool)
+    func addAPICALL(pri : String , sec : String , controller : UIViewController , callFrom : Bool , valueChanged : String)
     {
         let apiToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)
         let header : HTTPHeaders =
         [Constant.AUTHORIZATION : apiToken!]
-        print(header)
+      
         let lang = LocalData.getLanguage(LocalData.language)
-        let param = ["primary_goal": pri.description , "secondary_goal" : sec.description , "lang" : lang]
- 
+        let param = ["primary_goal": pri.description , "secondary_goal" : sec.description , "lang" : lang , "point_type" : valueChanged]
+        print(param)
         var apiURL = ""
         if callFrom
         {

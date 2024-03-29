@@ -23,7 +23,9 @@ class TherapistController: UIViewController,  UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         indicator.isHidden = true
-        
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+       
+        indicator.backgroundColor =  hexStringToUIColor(hex: color ?? "#fff456")
         therapistAPICALL()
         // Do any additional setup after loading the view.
     }

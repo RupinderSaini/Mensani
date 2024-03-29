@@ -79,7 +79,7 @@ class EditProfileController: UIViewController , sportsDelegate,UIImagePickerCont
                 imgProfile.loadurl(url: urlYourURL!)
             }
         }
-        teamAPICall()
+       
         
     }
     
@@ -92,6 +92,7 @@ class EditProfileController: UIViewController , sportsDelegate,UIImagePickerCont
         txtSport.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
         txtTeam.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
         setBorder10(viewName: btnUpdate, radius: 23)
+        setBorder10(viewName: indicator, radius: 10)
         imgProfile.layer.borderWidth = 1
         imgProfile.layer.masksToBounds = false
         imgProfile.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -103,12 +104,10 @@ class EditProfileController: UIViewController , sportsDelegate,UIImagePickerCont
         imgProfile.isUserInteractionEnabled = true
         imgProfile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.profileCall)))
         
-        vTeam.isUserInteractionEnabled = true
-        vTeam.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.teamCall)))
-        
-        
+      
+    
         txtEditProfile.text = LocalisationManager.localisedString("edit_pro")
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnUpdate.setTitle(LocalisationManager.localisedString("update"), for: .normal)
         txtName.text = LocalisationManager.localisedString("name")
         txtEmail.text = LocalisationManager.localisedString("Email")
@@ -116,10 +115,23 @@ class EditProfileController: UIViewController , sportsDelegate,UIImagePickerCont
         txtTeamHead.text = LocalisationManager.localisedString("team")
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
         btnUpdate.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtName.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtEmail.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtSports.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtTeamHead.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+        txtName.textColor = .white
+        txtEmail.textColor = .white
+        txtSports.textColor = .white
+        txtTeamHead.textColor = .white
+        edName.tintColor = .white
+        indicator.backgroundColor = .white
+        
+        if UserDefaults.standard.string(forKey: Constant.TEAM_TYPE)?.lowercased() == "private"
+        {
+           
+        }
+        else
+        {
+            vTeam.isUserInteractionEnabled = true
+            vTeam.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.teamCall)))
+            teamAPICall()
+        }
     }
     
     @objc func sportsCall()
@@ -363,6 +375,7 @@ class EditProfileController: UIViewController , sportsDelegate,UIImagePickerCont
                             UserDefaults.standard.set(self.strName, forKey: Constant.NAME)
                             UserDefaults.standard.set(sports!, forKey: Constant.SPORTS)
                             UserDefaults.standard.set(self.strEmail, forKey: Constant.EMAIL)
+                            UserDefaults.standard.set( self.txtTeam.text, forKey: Constant.TEAM)
                             
                             self.alertSucces(title: Constant.SUCCESS, Message: "Your profile updated successfully ")
                         }
@@ -411,7 +424,8 @@ class EditProfileController: UIViewController , sportsDelegate,UIImagePickerCont
                 UserDefaults.standard.set(self.strName, forKey: Constant.NAME)
                 UserDefaults.standard.set(self.strEmail, forKey: Constant.EMAIL)
                 UserDefaults.standard.set(sports!, forKey: Constant.SPORTS)
-                
+                UserDefaults.standard.set( self.txtTeam.text, forKey: Constant.TEAM)
+
                 self.alertSucces(title:  Constant.SUCCESS, Message:  "\(json["message"])")
                 
             }

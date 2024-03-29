@@ -129,10 +129,12 @@ class WellbeingController: UIViewController {
         if UserDefaults.standard.string(forKey: Constant.WELLBEING_MOOD) != nil
         {
             let mood = UserDefaults.standard.string(forKey: Constant.WELLBEING_MOOD)
+            print(mood!)
             for pos in arrOfButton {
-                if pos.titleLabel?.text == mood
+               
+                if (pos.titleLabel!.text!.lowercased() == "\(mood!.lowercased())")
                 {
-                    print(pos.titleLabel?.text)
+                  
                     changeBackground(btn: pos)
                     lastSelectedButton = pos
                 }
@@ -178,7 +180,7 @@ class WellbeingController: UIViewController {
         btnAnxious.layer.borderWidth = 0.5
         
         btnWoried.layer.cornerRadius = 10
-        btnWoried.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        btnWoried.layer.maskedCorners = [.layerMinXMinYCorner]
         btnWoried.layer.borderColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         btnWoried.layer.borderWidth = 0.5
         
@@ -187,12 +189,34 @@ class WellbeingController: UIViewController {
         btnDepressed.layer.borderColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         btnDepressed.layer.borderWidth = 0.5
         
+        btnAnnyoed.layer.cornerRadius = 10
+        btnAnnyoed.layer.maskedCorners = [.layerMinXMaxYCorner]
+        btnAnnyoed.layer.borderColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btnAnnyoed.layer.borderWidth = 0.5
+        
+        txtWell.lineBreakMode = .byCharWrapping
+        
+        btnAngry.layer.cornerRadius = 10
+        btnAngry.layer.maskedCorners = [.layerMaxXMinYCorner]
+        btnAngry.layer.borderColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btnAngry.layer.borderWidth = 0.5
+        
+        btnAnxious.layer.cornerRadius = 10
+        btnAnxious.layer.maskedCorners = [.layerMaxXMaxYCorner]
+        btnAnxious.layer.borderColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btnAnxious.layer.borderWidth = 0.5
+
+//        btnAngry.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+////        btnAnnyoed.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+//        btnAnnyoed.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+//        btnWoried.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+//        btnAnnyoed.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2 )
        
     }
     
     func setLanguage()
     {
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnSave.setTitle(LocalisationManager.localisedString("save"), for: .normal)
         
         btnSad.setTitle(LocalisationManager.localisedString("sad"), for: .normal)
@@ -202,7 +226,7 @@ class WellbeingController: UIViewController {
         btnBored.setTitle(LocalisationManager.localisedString("bored"), for: .normal)
         btnWoried.setTitle(LocalisationManager.localisedString("worried"), for: .normal)
         btnAnxious.setTitle(LocalisationManager.localisedString("anxious"), for: .normal)
-        btnAnnyoed.setTitle(LocalisationManager.localisedString("angry"), for: .normal)
+        btnAnnyoed.setTitle(LocalisationManager.localisedString("annyoed"), for: .normal)
         btnDepressed.setTitle(LocalisationManager.localisedString("depressed"), for: .normal)
         btnExcited.setTitle(LocalisationManager.localisedString("Excited"), for: .normal)
         btnFocused.setTitle(LocalisationManager.localisedString("focused"), for: .normal)
@@ -213,8 +237,10 @@ class WellbeingController: UIViewController {
         
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
         btnSave.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtMyTho.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtIFeel.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtMyTho.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtIFeel.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        edThoughts.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        edThoughts.tintColor = .white
 //        txtWell.textColor = hexStringToUIColor(hex: color ?? "#fff456")
     }
     
@@ -251,12 +277,12 @@ class WellbeingController: UIViewController {
                    UserDefaults.standard.set(mood.description, forKey: Constant.WELLBEING_MOOD)
                    UserDefaults.standard.set(thought.description, forKey: Constant.WELLBEING_THOUGHTS)
               
-                self.alertSucces(title: StringConstant.SUCCESS, Message: "\(json["message"])")
+                self.alertSucces(title: LocalisationManager.localisedString("save_success"), Message: "\(json["message"])")
             }
            
             else
             {
-                self.alertFailure(title: StringConstant.FAILED, Message: "\(json["message"])")
+                self.alertFailure(title: LocalisationManager.localisedString("failed"), Message: "\(json["message"])")
             }
             
         }

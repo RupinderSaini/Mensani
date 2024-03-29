@@ -125,10 +125,10 @@ class StartController: UIViewController {
         btnSelf.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnPerformance.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnWellbeing.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtIn.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtPre.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtPost.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtOpt.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtIn.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtPre.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtPost.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtOpt.textColor = hexStringToUIColor(hex: color ?? "#fff456")
         
         txtIn.text = LocalisationManager.localisedString("in_event")
         txtPre.text = LocalisationManager.localisedString("pre")
@@ -136,7 +136,7 @@ class StartController: UIViewController {
         txtPost.text = LocalisationManager.localisedString("post_event")
         txtEvent.text = LocalisationManager.localisedString("event")
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnPerformance.setTitle(LocalisationManager.localisedString("performance"), for: .normal)
     
         btnGoals.setTitle(LocalisationManager.localisedString("goals"), for: .normal)

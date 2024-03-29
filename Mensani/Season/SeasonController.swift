@@ -46,7 +46,7 @@ class SeasonController: UIViewController {
         
         txtOptional.text = LocalisationManager.localisedString("optional")
         txtSeason.text = LocalisationManager.localisedString("season")
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnSelf.setTitle(LocalisationManager.localisedString("self_talk_setup"), for: .normal)
         btnSeason.setTitle(LocalisationManager.localisedString("season_goals"), for: .normal)
         btnDream.setTitle(LocalisationManager.localisedString("dream_season"), for: .normal)
@@ -55,7 +55,8 @@ class SeasonController: UIViewController {
         btnSelf.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnDream.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         btnSeason.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtOptional.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtOptional.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+        txtOptional.textColor = .white
     }
     
 

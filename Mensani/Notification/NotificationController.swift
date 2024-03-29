@@ -46,7 +46,7 @@ class NotificationController: UIViewController , LZViewPagerDelegate, LZViewPage
        
         stackBtn.layer.cornerRadius=20
         stackBtn.clipsToBounds=true
-        viewBottom(viewBtn: viewBtn)
+//        viewBottom(viewBtn: viewBtn)
         
         viewPager.dataSource = self
         viewPager.delegate = self
@@ -77,18 +77,26 @@ class NotificationController: UIViewController , LZViewPagerDelegate, LZViewPage
     }
     
     func button(at index: Int) -> UIButton {
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+        
+//        let button = UIButton()
+//                button.setTitleColor(UIColor.white, for: .normal)
+//        button.backgroundColor = .black
+////        button.tintColor = .red
+//                button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//                return button
         let button = UIButton()
-        button.addBottomBorderWithColor(color: .yellow, width: 0.5)
-    
-                button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = .black
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-                return button
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.setBackgroundImage(UIImage.imageWithColor(color: UIColor.black), for: .normal)
+        button.setBackgroundImage(UIImage.imageWithColor(color: hexStringToUIColor(hex: color ?? "#fff456")), for: .selected)
+        button.setTitleColor(UIColor.white, for: .normal)
+//        button.setTitleColor(UIColor.white, for: .selected)
+        return button
     }
-    func backgroundColorForHeader() -> UIColor
-    {
-        return UIColor.black
-    }
+//    func backgroundColorForHeader() -> UIColor
+//    {
+//        return UIColor.black
+//    }
     
    
     
@@ -96,15 +104,12 @@ class NotificationController: UIViewController , LZViewPagerDelegate, LZViewPage
         return self.subControllers.count
     }
     
-    func colorForIndicator(at index: Int) -> UIColor
-    {
-        return #colorLiteral(red: 0.9770143628, green: 0.7121481895, blue: 0, alpha: 1)
-    }
+   
     
-    func widthForButton(at index: Int) -> CGFloat
-    {
-        return 100
-    }
+//    func widthForButton(at index: Int) -> CGFloat
+//    {
+//        return 100
+//    }
     
     private var subControllers:[UIViewController] = []
       

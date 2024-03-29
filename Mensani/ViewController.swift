@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vQuote.backgroundColor = UIColor(white: 1, alpha: 0.4)
+        vQuote.isHidden = true
     let a =  UserDefaults.standard.value( forKey: Constant.notificationReceived)
         btnLogin.setTitle(LocalisationManager.localisedString("login"), for: .normal)
     }
@@ -50,17 +51,17 @@ class ViewController: UIViewController {
         else{
             alertInternetMain()
         }
-       
-        if UserDefaults.standard.string(forKey: Constant.SPLASH_IMAGE) != nil
-        {
-            let url = URL(string: (UserDefaults.standard.string(forKey: Constant.SPLASH_IMAGE) ?? ""))
-                          
-            imgSplash.loadurl(url: url!)
-        }
-        else
-        {
-            imgSplash.image = UIImage(named: "splash")
-        }
+//       print(UserDefaults.standard.string(forKey: Constant.SPLASH_IMAGE))
+//        if UserDefaults.standard.string(forKey: Constant.SPLASH_IMAGE) != nil
+//        {
+//            let url = URL(string: (UserDefaults.standard.string(forKey: Constant.SPLASH_IMAGE) ?? "https://phpstack-102119-3874918.cloudwaysapps.com/storage/image_thumbnail//170361805156a2980e97d29e5b9f2d5033afc5357b.jpg"))
+//                          
+//            imgSplash.loadurl(url: url!)
+//        }
+//        else
+//        {
+//            imgSplash.image = UIImage(named: "splash")
+//        }
  
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -112,6 +113,25 @@ extension UITextField {
 
 extension UIViewController
 {
+    func showToast(message : String, font: UIFont) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 80 , y: self.view.frame.size.height-200, width: 200, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } 
+
     func setLanguage(_ code : String) {
         let selectedLangCode = LocalData.getLanguage(LocalData.language)
         print(selectedLangCode)
@@ -150,14 +170,13 @@ extension UIViewController
         let filePath = getDocumentsDirectory().appendingPathComponent(filename)
         return filePath
     }
-     func getVideoFileUrl() -> URL
+   
+    func getVideoFileUrl() -> URL
     {
         let filename = "video.mov"
         let filePath = getDocumentsDirectory().appendingPathComponent(filename)
         return filePath
     }
-    
-   
  
     func setBorder10(viewName : AnyObject , radius : CGFloat)
     {
@@ -191,7 +210,7 @@ extension UIViewController
         activityIndicator.hidesWhenStopped = false
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
                 
-        activityIndicator.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
+        activityIndicator.backgroundColor = hexStringToUIColor(hex: color ?? "#F6A800")
         activityIndicator.layer.cornerRadius = 5
         activityIndicator.layer.masksToBounds = true
         self.view.addSubview(activityIndicator)
@@ -254,6 +273,7 @@ extension UIViewController
     
     func alertInternetMain() -> Void {
         let alert = UIAlertController(title:  "Internet connection", message:  "It seems your internet connection lost. Please connect and try again", preferredStyle: .alert)
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .white
         alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("ok"), style: .default, handler: { action in
             switch action.style{
             case .default:
@@ -305,7 +325,9 @@ extension UIViewController
     func alertUIUnauthorised() {
         let viewController = UIApplication.shared.windows.first!.rootViewController
         
-        let alert = UIAlertController(title: "Unauthorized", message: "It seems you are logged in another device. To access this feature please re-login", preferredStyle: .alert)
+        let alert = UIAlertController(title: LocalisationManager.localisedString("Unauthorized"), message: LocalisationManager.localisedString("re_login"), preferredStyle: .alert)
+        
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .white
         alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("ok"), style: .default, handler: { action in
             switch action.style{
             case .default:
@@ -329,14 +351,13 @@ extension UIViewController
     func alertUISubscribe() -> Void
     {
         
-        let refreshAlert = UIAlertController(title: "Pro Video", message: "Subscribe a plan to access the pro videos", preferredStyle: UIAlertController.Style.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+        let refreshAlert = UIAlertController(title: LocalisationManager.localisedString("pro"), message:  LocalisationManager.localisedString("subscribed_plan"), preferredStyle: UIAlertController.Style.alert)
+        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("cancel"), style: .default, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
         }))
         
         
-        refreshAlert.addAction(UIAlertAction(title: "Subscribe", style: .default, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("subscribe"), style: .default, handler: { (action: UIAlertAction!) in
             if(self.currentReachabilityStatus != .notReachable)
             {
                 let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "subsc") as? SubscriptionController
@@ -359,7 +380,14 @@ extension UIViewController
     
     func alertSucces(title: String,Message : String) -> Void {
         let alert = UIAlertController(title: title, message: Message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("ok"), style: .default, handler: { action in
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
+        
+        let attributedString2 = NSAttributedString(string: Message, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)])
+        alert.setValue(attributedString, forKey: "attributedTitle")
+        alert.setValue(attributedString2, forKey: "attributedMessage")
+
+        let cancelAction = UIAlertAction(title: LocalisationManager.localisedString("ok"), style: .destructive, handler: { action in
             switch action.style{
             case .default:
                 print("default")
@@ -369,10 +397,13 @@ extension UIViewController
                 
             case .destructive:
                 print("destructive")
+                _ = self.navigationController?.popViewController(animated: true)
                 
             @unknown default:
                 break;
-            }}))
+            }})
+        cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
+        alert.addAction(cancelAction)
         //   alert.setBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0))
         
         self.present(alert, animated: true, completion: nil)
@@ -380,7 +411,13 @@ extension UIViewController
     }
     
     func alertInternet() -> Void {
-        let alert = UIAlertController(title: "Internet connection", message: "It seems your internet connection is lost. Please connect and try again", preferredStyle: .alert)
+        let alert = UIAlertController(title: LocalisationManager.localisedString("Internet_connection"), message: LocalisationManager.localisedString("con_lost"), preferredStyle: .alert)
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .white
+        let attributedString = NSAttributedString(string: LocalisationManager.localisedString("Internet_connection"), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
+        
+        let attributedString2 = NSAttributedString(string: LocalisationManager.localisedString("con_lost"), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)])
+        alert.setValue(attributedString, forKey: "attributedTitle")
+        alert.setValue(attributedString2, forKey: "attributedMessage")
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style{
             case .default:
@@ -402,10 +439,12 @@ extension UIViewController
     }
     
     func alertUIGuestUser() -> Void {
-        let alert = UIAlertController(title: "Guest user", message: "It seems you are logged in as guest user. To access this feature please do login/signup", preferredStyle: .alert)
+        let alert = UIAlertController(title: LocalisationManager.localisedString("Guest_user"), message: LocalisationManager.localisedString("guest_login"), preferredStyle: .alert)
+        
         let cancelAction = UIAlertAction(title: LocalisationManager.localisedString("cancel"), style: .default, handler: {
             (action : UIAlertAction!) -> Void in
         })
+        cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
         alert.addAction(cancelAction)
         alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("login"), style: .default, handler: { action in
             switch action.style{
@@ -439,21 +478,29 @@ extension UIViewController
     func alertFailure(title: String,Message : String) -> Void {
         let alert = UIAlertController(title: title, message: Message, preferredStyle: .alert)
         
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = #colorLiteral(red: 0.9521259665, green: 0.6694926023, blue: 0.685166955, alpha: 1)
+        let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
         
-        alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("ok"), style: .default, handler: { action in
+        let attributedString2 = NSAttributedString(string: Message, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
+        alert.setValue(attributedString, forKey: "attributedTitle")
+        alert.setValue(attributedString2, forKey: "attributedMessage")
+        let cancelAction = UIAlertAction(title: LocalisationManager.localisedString("ok"), style: .destructive, handler: { action in
             switch action.style{
             case .default:
                 print("default")
-                
+              
             case .cancel:
                 print("cancel")
                 
             case .destructive:
                 print("destructive")
+               
                 
             @unknown default:
                 break;
-            }}))
+            }})
+        cancelAction.setValue(UIColor.black, forKey: "titleTextColor")
+        alert.addAction(cancelAction)
         //   alert.setBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0))
         
         self.present(alert, animated: true, completion: nil)
@@ -461,9 +508,9 @@ extension UIViewController
     }
     
     func alertMicrophone() -> Void {
-        let alert = UIAlertController(title: StringConstant.PERMISSION, message: StringConstant.PERMISSION_MSG, preferredStyle: .alert)
+        let alert = UIAlertController(title: LocalisationManager.localisedString("PERMISSION"), message: LocalisationManager.localisedString("PERMISSION_MSG"), preferredStyle: .alert)
         
-        
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .white
         alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("cancel"), style: .default, handler: { action in
             switch action.style{
             case .default:
@@ -478,7 +525,7 @@ extension UIViewController
             @unknown default:
                 break;
             }}))
-        alert.addAction(UIAlertAction(title: "Open settings", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: LocalisationManager.localisedString("Open_settings"), style: .default, handler: { action in
                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                }))
         //   alert.setBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0))
@@ -610,6 +657,16 @@ extension UIImage {
     /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
     func jpeg(_ jpegQuality: JPEGQuality) -> Data? {
         return jpegData(compressionQuality: jpegQuality.rawValue)
+    }
+   
+    class func imageWithColor(color: UIColor) -> UIImage {
+        let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
 }
 

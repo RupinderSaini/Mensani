@@ -73,7 +73,7 @@ class ResetController: UIViewController , ResetValidationDelegate, UITextFieldDe
         
         
         btnReset.setTitle(LocalisationManager.localisedString("reset"), for: .normal)
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         
         
     }

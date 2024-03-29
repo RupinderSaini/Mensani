@@ -26,7 +26,8 @@ class SubscriptionCell: UITableViewCell {
         setBorderCell(viewName: btnSubscribed, radius: 10)
         btnSubscribed.isHidden = true
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
-        btnDuration.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        btnDuration.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
+        txtPrice.textColor = .white
         btnCancel.setTitle(LocalisationManager.localisedString("cancel"), for: .normal)
     }
 

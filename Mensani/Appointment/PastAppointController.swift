@@ -1,14 +1,14 @@
 //
-//  AppointListController.swift
+//  PastAppointController.swift
 //  Mensani
 //
-//  Created by apple on 12/07/23.
+//  Created by Protolabz MacbookPro2 on 11/01/24.
 //
 
 import UIKit
 import Alamofire
 
-class AppointListController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class PastAppointController: UIViewController  , UITableViewDelegate, UITableViewDataSource{
     var arrOfPlans : [Booking] = []
     @IBOutlet weak var txtNoData: UILabel!
    
@@ -60,7 +60,7 @@ class AppointListController: UIViewController , UITableViewDelegate, UITableView
         print(header)
         let param = ["athlete_id": userId]
         print(param)
-        APIManager.shared.requestService(withURL: Constant.appointListAPI, method: .post, param: param , header: header, viewController: self) { (json) in
+        APIManager.shared.requestService(withURL: Constant.appointPastListAPI, method: .post, param: param , header: header, viewController: self) { (json) in
             print(json)
             if("\(json["status"])" == "1")
             {

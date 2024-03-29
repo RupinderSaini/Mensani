@@ -22,7 +22,7 @@ class WebViewController: UIViewController , WKUIDelegate , WKNavigationDelegate{
         super.viewDidLoad()
         
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         webView.navigationDelegate = self
         webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
         webView.scrollView.showsHorizontalScrollIndicator = false
@@ -59,7 +59,7 @@ class WebViewController: UIViewController , WKUIDelegate , WKNavigationDelegate{
             print("url = \(url)")
             if(url.lowercased().contains("success") )
             {
-                alertSucces(title: StringConstant.SUCCESS, Message: StringConstant.PAYMENT_SUCCESS)
+                alertSucces(title: LocalisationManager.localisedString("payment"), Message: LocalisationManager.localisedString("payment_done"))
                 _ = navigationController?.popViewController(animated: true)
 //                placeOrderAPI()
             }

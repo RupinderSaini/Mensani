@@ -21,9 +21,51 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
         }
       
     }
+    
+    @IBOutlet weak var btnopCancel: UIButton!
+    @IBOutlet weak var btnOpAudio: UIButton!
+    @IBOutlet weak var btnOpVideo: UIButton!
+    @IBAction func btnOpCancel(_ sender: Any) {
+        viewPlayMain.isHidden = true
+        vOption.isHidden = true
+    }
+    @IBAction func btnUpAudio(_ sender: Any) {
+        if(self.currentReachabilityStatus != .notReachable)
+        {
+            self.audioCall()
+            viewPlayMain.isHidden = true
+            vOption.isHidden = true
+        }
+        else
+        {
+            self.alertInternet()
+        }
+    }
+    @IBAction func btnUpVideo(_ sender: Any) {
+        
+        if(self.currentReachabilityStatus != .notReachable)
+        {
+            self.videoCall()
+            viewPlayMain.isHidden = true
+            vOption.isHidden = true
+        }
+        else
+        {
+            self.alertInternet()
+        }
+    }
+    @IBOutlet weak var stackOption: UIStackView!
+    @IBOutlet weak var vOption: UIView!
+    
+    @IBOutlet weak var vStack: UIView!
     var arrOfAudio : [DatumSelf] = []
     var flag = "0"
+    var countLimit = 0
     
+    var videoUrl : URL? = nil
+    
+//    @IBOutlet weak var vMainVideo: UIView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     var player : AVPlayer!
     @IBOutlet weak var txtNoData: UILabel!
     @IBOutlet weak var tableview: UITableView!
@@ -32,85 +74,117 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
         _ = navigationController?.popViewController(animated: true)
     }
    
-    @IBOutlet weak var slidetOutlet: UISlider!
-    @IBOutlet weak var vRecord: UIView!
-    @IBOutlet weak var vInner: UIView!
+  
+    @IBOutlet weak var vVideoName: UIView!
+    @IBOutlet weak var btnCancelv: UIButton!
+    @IBOutlet weak var btnSave: UIButton!
+    @IBAction func btnVideoSave(_ sender: Any) {
+        if let text = edVideoName.text?.trimmingCharacters(in: .whitespaces), text.isEmpty
+        {
+            alertFailure(title: LocalisationManager.localisedString("audio_name"), Message: LocalisationManager.localisedString("enter_audio_namee"))
+        }
+        else
+        {
+         let  strName = (edVideoName.text?.trimmingCharacters(in: .whitespaces))!
+            uploadDocument(url: strName,type: "1")
+        }
+    }
+    @IBAction func btnCancelV(_ sender: Any) {
+        viewPlayMain.isHidden = true
+        vVideoName.isHidden = true
+    }
+    @IBOutlet weak var edVideoName: UITextField!
+    @IBOutlet weak var txtVideoName: UILabel!
+//    @IBOutlet weak var slidetOutlet: UISlider!
+//    @IBOutlet weak var vRecord: UIView!
+//    @IBOutlet weak var vInner: UIView!
     @IBOutlet weak var viewPlayMain: UIView!
-    @IBOutlet weak var txtAudioName: UILabel!
-    @IBOutlet weak var btnPlayPause: UIButton!
+//    @IBOutlet weak var txtAudioName: UILabel!
+//    @IBOutlet weak var btnPlayPause: UIButton!
+    @IBOutlet weak var txtUploadType: UILabel!
     @IBAction func btnPlayPause(_ sender: Any) {
             
         if isPlaying
         {
-            btnPlayPause.setImage(UIImage(systemName: "play.circle"), for: .normal)
+//            btnPlayPause.setImage(UIImage(systemName: "play.circle"), for: .normal)
             isPlaying = false
             player.pause()
             
         }
         else
         {
-            btnPlayPause.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+//            btnPlayPause.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             isPlaying = true
             player.play()
         }
     }
-    //pause.circle
-    @IBOutlet weak var txtPlayTime: UILabel!
-    
-    @IBOutlet weak var btnReset: UIButton!
-    @IBAction func btnReset(_ sender: Any) {
-        player.seek(to: .zero)
-        btnPlayPause.setImage(UIImage(systemName: "pause.circle"), for: .normal)
-        isPlaying = true
-        player.play()
-    }
-    @IBAction func btnCancel(_ sender: Any) {
-        player.pause()
-        txtPlayTime.text = "00:00:00"
-        txtAudioName.text = ""
-        vInner.isHidden = true
-        viewPlayMain.isHidden = true
 
-       
-    }
     var isPlaying = false
     
         override func viewDidLoad() {
             super.viewDidLoad()
  
+            indicator.isHidden = true
             let nib2 = SelfTalkCell.nib
             tableview.register(nib2, forCellReuseIdentifier:SelfTalkCell.identifier)
             viewPlayMain.alpha = 0.3
-            setBorder10(viewName: vInner, radius: 10)
+          
+//            setBorder10(viewName: vInner, radius: 10)
             
-            setBorder10(viewName: btnReset, radius: 10)
+//            setBorder10(viewName: btnReset, radius: 10)
+//            setBorder10(viewName: edVideoName, radius: 10)
            
-            setBorder10(viewName: vRecord, radius: 10)
+//            setBorder10(viewName: vRecord, radius: 10)
+//            setBorder10(viewName: vVideoName, radius: 10)
+            
+            vOption.isHidden = true
+            
+            edVideoName.setLeftPaddingPoints(10)
+            edVideoName.setRightPaddingPoints(10)
             flag = "\(UserDefaults.standard.string(forKey: Constant.VIEW_SELECTED) ?? "0")"
-            vInner.isHidden = true
+//            vInner.isHidden = true
+            vVideoName.isHidden = true
             viewPlayMain.isHidden = true
 //            tableView.register(SelfTalkCell.nib, forCellReuseIdentifier: SelfTalkCell.identifier)
             tableview.delegate = self
             tableview.dataSource = self
             txtNoData.isHidden = true
           
+           
+            setBorder10(viewName: vStack, radius: 20)
+            setBorder10(viewName: vOption, radius: 20)
+            setBorder10(viewName: btnSave, radius: 20)
+            setBorder10(viewName: btnCancelv, radius: 20)
+            setBorder10(viewName: indicator, radius: 10)
             
+           
             btnAdd.isUserInteractionEnabled = true
             btnAdd.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addCall)))
             
             let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
             btnAdd.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
-            btnReset.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
-            btnPlayPause.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
-          
+            indicator.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
+//            btnPlayPause.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+            stackOption.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
+            vOption.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
             txtNoData.text = LocalisationManager.localisedString("self_talk_empty")
-            txtAudioName.text = LocalisationManager.localisedString("audio_name")
-            btnReset.setTitle(LocalisationManager.localisedString("reset"), for: .normal)
-            btnPlayPause.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
+            txtNoData.text = LocalisationManager.localisedString("visulization_empty")
+            
+//            txtAudioName.text = LocalisationManager.localisedString("audio_name")
+            txtVideoName.text = LocalisationManager.localisedString("video_name")
+//            btnReset.setTitle(LocalisationManager.localisedString("reset"), for: .normal)
+            btnOpVideo.setTitle(LocalisationManager.localisedString("upload_video"), for: .normal)
+            btnOpAudio.setTitle(LocalisationManager.localisedString("own_audio"), for: .normal)
+            
+            btnSave.setTitle(LocalisationManager.localisedString("save"), for: .normal)
+            btnCancelv.setTitle(LocalisationManager.localisedString("cancel"), for: .normal)
+            btnopCancel.setTitle(LocalisationManager.localisedString("cancel"), for: .normal)
+            btnSave.backgroundColor =  hexStringToUIColor(hex: color ?? "#fff456")
+            
             
             if(self.currentReachabilityStatus != .notReachable)
             {
-           selfAPICALL()
+                selfAPICALL()
             }
             else
             {
@@ -120,7 +194,36 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
     
         @objc func addCall()
         {
-            alertUISelect()
+            if countLimit != 5
+            {
+                if flag == "0"
+                {
+                    txtUploadType.text = LocalisationManager.localisedString("add_visual")
+                }
+                else
+                {
+                    txtUploadType.text = LocalisationManager.localisedString("add_self")
+                }
+                
+                viewPlayMain.isHidden = false
+                vOption.isHidden = false
+             
+
+            }
+            else
+            {
+                if flag == "0"
+                {
+                txtUploadType.text = LocalisationManager.localisedString("add_visual")
+                    alertFailure(title: LocalisationManager.localisedString("limit"), Message: LocalisationManager.localisedString("visual_limit"))
+                }
+                else
+                {
+                    txtUploadType.text = LocalisationManager.localisedString("add_self")
+
+                    alertFailure(title: LocalisationManager.localisedString("limit"), Message: LocalisationManager.localisedString("self_limit"))
+                }
+            }
         }
 
 //        func audioCall()
@@ -151,7 +254,7 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             print("table relaod")
-          
+            self.countLimit = arrOfAudio.count
             return arrOfAudio.count
         }
 
@@ -174,26 +277,38 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if arrOfAudio[indexPath.row].type == 0
+//        if arrOfAudio[indexPath.row].type == 0
+//      if 1 == 0
 //        if arrOfAudio[indexPath.row].recording.lowercased().hasSuffix(".mp3") || arrOfAudio[indexPath.row].recording.lowercased().hasSuffix(".m4a")
+//        {
+//            let urlString = arrOfAudio[indexPath.row].recording.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+//            //        let str = "https://argaamplus.s3.amazonaws.com/eb2fa654-bcf9-41de-829c-4d47c5648352.mp3"
+//            let urlYourURL = URL (string:  urlString!)
+//            play(url: urlYourURL!)
+//            slidetOutlet.value = 0
+//            txtAudioName.text = arrOfAudio[indexPath.row].audioName
+//            viewPlayMain.isHidden = false
+//            vInner.isHidden = false
+//        }
+//        else
+//        {
+        var type = ""
+        if flag == "0"
         {
-            let urlString = arrOfAudio[indexPath.row].recording.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-            //        let str = "https://argaamplus.s3.amazonaws.com/eb2fa654-bcf9-41de-829c-4d47c5648352.mp3"
-            let urlYourURL = URL (string:  urlString!)
-            play(url: urlYourURL!)
-            slidetOutlet.value = 0
-            txtAudioName.text = arrOfAudio[indexPath.row].audioName
-            viewPlayMain.isHidden = false
-            vInner.isHidden = false
+           type = "visualization"
         }
         else
         {
+            type = "selftalk"
+        }
+        
             let secondViewController = mainStoryboard.instantiateViewController(withIdentifier: "play") as! PlayVideoController
-          
+        secondViewController.comeFrom = 1
+        secondViewController.strType = type
             secondViewController.strURL  = arrOfAudio[indexPath.row].recording.description
             secondViewController.strName = arrOfAudio[indexPath.row].audioName
             self.navigationController?.pushViewController(secondViewController, animated: true)
-        }
+//        }
     }
     
     
@@ -213,7 +328,7 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
     func play(url:URL)
     {
         let playerItem = AVPlayerItem(url: url)
-            btnPlayPause.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+//            btnPlayPause.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             isPlaying = true
             self.player = try AVPlayer(playerItem:playerItem)
 //            player!.volume = 1.0
@@ -231,16 +346,16 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
                 player!.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) { (CMTime) -> Void in
                     if self.player!.currentItem?.status == .readyToPlay {
                         let time : Float64 = CMTimeGetSeconds(self.player!.currentTime());
-                        self.slidetOutlet.value = Float ( time )
-                        self.slidetOutlet.minimumValue = 0
+//                        self.slidetOutlet.value = Float ( time )
+//                        self.slidetOutlet.minimumValue = 0
 
                         let duration : CMTime = playerItem.asset.duration
                         let seconds : Float64 = CMTimeGetSeconds(duration)
 
-                        self.slidetOutlet.maximumValue = Float(seconds)
+//                        self.slidetOutlet.maximumValue = Float(seconds)
 //                        self.txtAudioName.text = self.secondsToHoursMinutesSeconds(seconds: seconds)
 
-                        self.txtPlayTime.text = self.secondsToHoursMinutesSeconds(seconds: Double( self.slidetOutlet.value ))
+//                        self.txtPlayTime.text = self.secondsToHoursMinutesSeconds(seconds: Double( self.slidetOutlet.value ))
                     }
                 }
 
@@ -270,10 +385,12 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
         var APIname = ""
         if flag == "0"
         {
+            txtNoData.text = LocalisationManager.localisedString("visulization_empty")
             APIname = Constant.viewVisualAPI
         }
         else
         {
+            txtNoData.text = LocalisationManager.localisedString("self_talk_empty")
             APIname = Constant.viewSelfAPI
         }
         APIManager.shared.requestService(withURL: APIname, method: .post, param: param , header: header, viewController: self) { [self] (json) in
@@ -285,7 +402,7 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
                     let data = try json.rawData(options: .prettyPrinted)
                     let model = try JSONDecoder().decode(SelfListResponse.self, from: data)
                     self.arrOfAudio = model.data
-                   
+                    self.countLimit = self.arrOfAudio.count
                     if (self.arrOfAudio.count > 0)
                     {
                         self.txtNoData.isHidden = true
@@ -434,7 +551,11 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
             
             
             dismiss(animated: true, completion: nil)
-            uploadDocument(url : possibleImage , type:  "1")
+            vVideoName.isHidden = false
+            viewPlayMain.isHidden = false
+            vOption.isHidden = true
+            videoUrl = possibleImage
+//            uploadDocument(url : possibleImage , type:  "1")
 //            imageOrg = possibleImage
           //  let data = possibleImage.pngData()
             
@@ -452,50 +573,10 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    func alertUISelect() -> Void
-    {
-        let refreshAlert = UIAlertController(title: LocalisationManager.localisedString("sel_upload_type"), message: "", preferredStyle: UIAlertController.Style.alert)
-    
-        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("video"), style: .default, handler: { (action: UIAlertAction!) in
-            self.videoCall()
-            
-        }))
-    
-    
-        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("audio"), style: .default, handler: { (action: UIAlertAction!) in
-            if(self.currentReachabilityStatus != .notReachable)
-            {
-                self.audioCall()
-//                self.deleteProductAPI(stId: stId, position: position)
-            }
-            else
-            {
-                self.alertInternet()
-            }
-    
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("cancel"), style: .default, handler: { (action: UIAlertAction!) in
-            if(self.currentReachabilityStatus != .notReachable)
-            {
-                self.dismiss(animated: true, completion: nil)
-//                self.audioCall()
-//                self.deleteProductAPI(stId: stId, position: position)
-            }
-            else
-            {
-                self.alertInternet()
-            }
-    
-        }))
-    
-        present(refreshAlert, animated: true, completion: nil)
-    }
+  
     
     func audioCall()
      {
-         
-       
 //            if flag == "0"
 //            {
              lazy var sheetVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "rec") as! RecordController
@@ -523,7 +604,10 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
 //            }
      }
     
-    func uploadDocument(url : URL , type : String)
+    
+    
+    
+    func uploadDocument(url : String , type : String)
     {
         
 //        let url = getFileUrl()
@@ -531,8 +615,8 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
         let header : HTTPHeaders =
         [Constant.AUTHORIZATION : apiToken!]
         
-//        indicator.isHidden = false
-//        indicator.startAnimating()
+        indicator.isHidden = false
+        indicator.startAnimating()
       
         var ApiName = ""
        
@@ -546,11 +630,11 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
             ApiName = Constant.recordSelfAPI
             
         }
-        let parameters = ["audio_name": "video.mov"  , "type" : type]
+        let parameters = ["audio_name": url , "type" : type]
         print(parameters)
         AF.upload(
             multipartFormData: { multipartFormData in
-                     multipartFormData.append(url, withName: "recording" , fileName: "video.mov", mimeType: "*/*")
+                multipartFormData.append(self.videoUrl!, withName: "recording" , fileName: "video.mov", mimeType: "*/*")
                
                 for (key, value) in parameters {
                     multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
@@ -572,12 +656,18 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
                         let data = try JSON(data: json)
                    
                         let status = data["status"]
-                      
-//                        self.indicator.stopAnimating()
-//                        self.indicator.isHidden = true
-                        
+                        self.indicator.stopAnimating()
+                        self.indicator.isHidden = true
+                        self.viewPlayMain.isHidden = true
+                        self.vVideoName.isHidden = true
                         if("\(status)" == "1")
                         {
+                            let model = try JSONDecoder().decode(SelfListResponse.self, from: response.data!)
+                            self.arrOfAudio = model.data
+                            self.edVideoName.text = ""
+                            self.tableview.reloadData()
+                            self.txtNoData.isHidden = true
+                            self.tableview.isHidden = false
 //                            self.delegate!.refreshList()
                             self.dismiss(animated: true)
                         }
@@ -585,14 +675,14 @@ class SelfTalkController: UIViewController , UITableViewDelegate, UITableViewDat
                         {
                             let message = data["message"]
                             self.alertFailure(title: LocalisationManager.localisedString("failed") , Message: "\(message)")
-//                            self.indicator.stopAnimating()
-//                            self.indicator.isHidden = true
+                            self.indicator.stopAnimating()
+                            self.indicator.isHidden = true
                         }
                     }
                     catch
                     {
-//                        self.indicator.stopAnimating()
-//                        self.indicator.isHidden = true
+                        self.indicator.stopAnimating()
+                        self.indicator.isHidden = true
                         print("JSON Error", error)
                         //    self.alertUI(title: "Invalid json", Message: "\(error)")
                     }

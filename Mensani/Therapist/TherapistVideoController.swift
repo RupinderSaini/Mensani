@@ -12,7 +12,7 @@ import Alamofire
 
 class TherapistVideoController: UIViewController ,  UITableViewDelegate, UITableViewDataSource {
     var position = 0
-    var arrOfVideos : [DatumVideos] = []
+    var arrOfVideos : [DatumTVideos] = []
     @IBOutlet weak var tableView: UITableView!
     var strId = ""
     @IBOutlet weak var txtNodata: UILabel!
@@ -26,10 +26,11 @@ class TherapistVideoController: UIViewController ,  UITableViewDelegate, UITable
     @IBOutlet weak var btnBack: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         txtName.text = strName
         txtNodata.text =    LocalisationManager.localisedString("support_videos_empty")
-
+        txtNodata.isHidden = true
+        
         let nib2 = SupportCell.nib
         tableView.register(nib2, forCellReuseIdentifier:SupportCell.identifier)
 
@@ -47,7 +48,7 @@ class TherapistVideoController: UIViewController ,  UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell2 = tableView.dequeueReusableCell(withIdentifier: SupportCell.identifier, for: indexPath) as! SupportCell
         cell2.txtName.text = arrOfVideos[indexPath.row].title
-        if "\(arrOfVideos[indexPath.row].price)".contains("Free")
+        if "\(arrOfVideos[indexPath.row].price.lowercased())".contains("free")
         {
             cell2.txtPro.isHidden = true
         }
@@ -55,6 +56,7 @@ class TherapistVideoController: UIViewController ,  UITableViewDelegate, UITable
         {
             cell2.txtPro.isHidden = false
         }
+        cell2.btnViews.isHidden = true
 //        cell2.btnViews.setTitle(arrOfVideos[indexPath.row].count.description + " views", for: .normal)
         let processor = DownsamplingImageProcessor(size:cell2.imgThumbnail.bounds.size)
                      |> RoundCornerImageProcessor(cornerRadius: 2)
@@ -84,18 +86,18 @@ class TherapistVideoController: UIViewController ,  UITableViewDelegate, UITable
         
        
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "play") as? PlayVideoController
-            vc?.strURL = arrOfVideos[indexPath.row].video!.description
+            vc?.strURL = arrOfVideos[indexPath.row].video.description
             vc?.strName = arrOfVideos[indexPath.row].title
             self.navigationController?.pushViewController(vc!, animated: true)
      
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if arrOfVideos[position].video != nil{
+//        if arrOfVideos[position].video.
             let secondViewController = segue.destination as! PlayVideoController
-            secondViewController.strURL  = arrOfVideos[position].video!.description
+            secondViewController.strURL  = arrOfVideos[position].video.description
             secondViewController.strName = arrOfVideos[position].title
-        }
+//        }
     }
     func eduAPICALL()
     {
@@ -112,16 +114,16 @@ class TherapistVideoController: UIViewController ,  UITableViewDelegate, UITable
                 do
                 {
                     let data = try json.rawData(options: .prettyPrinted)
-                    let model = try JSONDecoder().decode(SupportResponse.self, from: data)
+                    let model = try JSONDecoder().decode(TherapistVideoResponse.self, from: data)
                     self.arrOfVideos = model.data
                     
                     if self.arrOfVideos.count > 0
                     {
-                        
+                        self.txtNodata.isHidden = true
                     }
                     else
                     {
-                    
+                        self.txtNodata.isHidden = false
                     }
 
                         self.tableView.reloadData()

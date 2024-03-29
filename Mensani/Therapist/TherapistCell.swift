@@ -19,7 +19,7 @@ class TherapistCell: UITableViewCell {
         super.awakeFromNib()
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
        
-        btnVideo.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        btnVideo.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
         setBorderCell(viewName: viewUi, radius: 10)
         imgThearpist.layer.borderWidth = 1
         imgThearpist.layer.masksToBounds = false

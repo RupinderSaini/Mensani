@@ -23,8 +23,13 @@ class PrimarySecSeasonController: UIViewController ,SeasonDelegate {
     @IBOutlet weak var txtSecondary: UILabel!
     @IBOutlet weak var txtPrimary: UILabel!
     
-   
+    @IBAction func btnClear(_ sender: Any) {
+        edPrimary.text = ""
+        edSecondary.text = ""
+    }
     
+    
+    @IBOutlet weak var btnClear: UIButton!
     @IBAction func btnBack(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
     }
@@ -60,7 +65,13 @@ class PrimarySecSeasonController: UIViewController ,SeasonDelegate {
         
         edPrimary.text = primaryGoal
         edSecondary.text = secondGoal
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnClear.isHidden = true
+        if edPrimary.text.count > 1
+        {
+            btnClear.isHidden = false
+        }
+       
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnSave.setTitle(LocalisationManager.localisedString("save"), for: .normal)
     
         txtPrimary.text = LocalisationManager.localisedString("primary_seas_goal")
@@ -70,8 +81,17 @@ class PrimarySecSeasonController: UIViewController ,SeasonDelegate {
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
         btnSave.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
 
-        txtSecondary.textColor = hexStringToUIColor(hex: color ?? "#fff456")
-        txtPrimary.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtSecondary.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        txtPrimary.textColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        edPrimary.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+//        edSecondary.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
+        
+        
+        
+        txtSecondary.textColor = .white
+        txtPrimary.textColor = .white
+        edPrimary.tintColor = .white
+        edSecondary.tintColor = .white
 //        txtSeasonGoal.textColor = hexStringToUIColor(hex: color ?? "#fff456")
     }
 }

@@ -24,7 +24,7 @@ class SportsController: UIViewController,  UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         txtSports.text = LocalisationManager.localisedString("sports")
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         tableView.register(SportsCell.nib, forCellReuseIdentifier: SportsCell.identifier)
         
         tableView.delegate = self

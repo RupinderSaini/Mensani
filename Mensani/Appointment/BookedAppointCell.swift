@@ -18,6 +18,8 @@ class BookedAppointCell: UITableViewCell {
         super.awakeFromNib()
     setBorderCell(viewName: viewUi, radius: 10)
         setBorderCell(viewName: btnDate, radius: 10)
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+        btnDate.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         
 //        imgProfile.layer.borderWidth = 1
 //        imgProfile.layer.masksToBounds = false

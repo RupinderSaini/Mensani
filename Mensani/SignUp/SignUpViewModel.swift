@@ -16,8 +16,7 @@ class SignUpViewModel : SignUpProtocol
     var delegate: SignupValidationDelegate?
     var delegate2: LoginResponseDelegate?
     
-    
-    func sendValues(name: String?, email: String?, password: String?, cpassword: String?, token : String?,sportsId : String? , teamId : String?, controller: UIViewController) {
+    func sendValues(name: String?, email: String?, password: String?, cpassword: String?, token : String?,sportsId : String? , teamId : String?, type : Bool, tokenTeam : String?,  controller: UIViewController) {
         guard let namee = name else
         {
             return
@@ -42,13 +41,16 @@ class SignUpViewModel : SignUpProtocol
         {
             return
         }
+        guard let tokent = tokenTeam else
+        {
+            return
+        }
         
-        checkValidation(name: namee, email: emailAddress, password: passwordD, cpassword: cpasswordD, token : token! ,sports: sports, team: team, controller : controller)
-        
+        checkValidation(name: namee, email: emailAddress, password: passwordD, cpassword: cpasswordD, token : token! ,sports: sports, team: team, type: type, tokenTeam : tokent, controller : controller)
     }
     
     
-    func checkValidation(name: String, email: String, password: String, cpassword: String ,token : String,sports : String , team : String , controller : UIViewController)
+    func checkValidation(name: String, email: String, password: String, cpassword: String ,token : String,sports : String , team : String ,type : Bool, tokenTeam : String, controller : UIViewController)
     {
         print("validation")
         if  name.count < 1
@@ -73,28 +75,40 @@ class SignUpViewModel : SignUpProtocol
         {
             delegate?.sendResponse(handleString:  LocalisationManager.localisedString("equal_cpass_error"), emailOrPassword: 3)
         }
-        else if sports == ""
+      else if type && sports == ""
         {
-            delegate?.sendResponse(handleString:  LocalisationManager.localisedString("select_sports"), emailOrPassword: 4)
-        }
-        else if team == ""
-        {
-            delegate?.sendResponse(handleString:  LocalisationManager.localisedString("team"), emailOrPassword: 5)
-        }
+          
+          delegate?.sendResponse(handleString:  LocalisationManager.localisedString("select_sports"), emailOrPassword: 4)
+      }
+            else if  type && team == ""
+            {
+                delegate?.sendResponse(handleString:  LocalisationManager.localisedString("team"), emailOrPassword: 5)
+            }
+            
+        
         else
         {
-            otpAPICALL(email :email, controller : controller)
-//            loginAPICALL(email :email, password : password , name : name ,token : token,sportsId: sports, teamId: team ,controller : controller)
+            
+                otpAPICALL(email :email, token : tokenTeam, controller : controller)
+            
         }
     }
    
-    func otpAPICALL(email :String, controller : UIViewController)
+    func otpAPICALL(email :String,token : String ,controller : UIViewController)
     {
         let lang = LocalData.getLanguage(LocalData.language)
 
-
-        let param =
-        ["email": email  , "lang" : lang]
+        var param : [String : String]
+//        if type == 0
+//        {
+//            param =
+//            ["email": email  , "lang" : lang]
+//        }
+//        else
+//        {
+            param =
+            ["email": email  , "token" : token, "lang" : lang]
+//        }
         print(param)
         APIManager.shared.requestService(withURL: Constant.otpSignUpAPI, method: .post, param: param , viewController: controller) { [self] (json) in
          print(json)
@@ -102,10 +116,7 @@ class SignUpViewModel : SignUpProtocol
             if("\(json["status"])" == "1")
             {
                                     self.delegate?.sendJSONResponse(model: json )
-              
             }
-           
-
             else
             {
 //                self.delegate2?.sendFailure(handleString:  "\(json["message"])")
@@ -162,5 +173,5 @@ protocol SignupValidationDelegate
 
 protocol SignUpProtocol
 {
-    func sendValues(name: String?, email: String?, password: String?, cpassword: String?, token : String?,sportsId : String? , teamId : String?, controller : UIViewController)
+    func sendValues(name: String?, email: String?, password: String?, cpassword: String?, token : String?,sportsId : String? , teamId : String?,type : Bool, tokenTeam : String? , controller : UIViewController)
 }

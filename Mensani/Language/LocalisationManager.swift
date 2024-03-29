@@ -9,7 +9,7 @@ import Foundation
 import Foundation
 var bundleKey: UInt8 = 0
 
-var languages = [("🇺🇸 English","en"),("🇪🇨 Español","es") , ("🇭🇷 Croatian","hr")]
+var languages = [("English","en"),("Español","es") , ("Croatian","hr")]
 
 class LocalisationManager  {
 

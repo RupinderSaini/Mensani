@@ -22,32 +22,37 @@ struct TherapistInfoResponse: Codable {
 struct DataTherapist: Codable {
     let therapistProfile: TherapistProfile
     let therapistReview: [TherapistReview]
+    let isActive: Int
 
     enum CodingKeys: String, CodingKey {
         case therapistProfile = "therapist_profile"
         case therapistReview = "therapist_review"
+        case isActive = "is_active"
     }
 }
 
 // MARK: - TherapistProfile
 struct TherapistProfile: Codable {
-    let experience, phone, license: String
-    let hourlyRate: Float
+    let experience, phone: String
+    let hourlyRate: String
     let completed: String
     let status: Int
     let image: String
     let activeClient: String
     let id: Int
-    let sport, degree, email, name: String
+    let license : String?
+    let sport, degree, email, name, bio: String
     let proUser: Int
+    let personalQuote : String?
 
     enum CodingKeys: String, CodingKey {
         case experience, phone, license
         case hourlyRate = "hourly_rate"
-        case completed, status, image
+        case completed, status, image , bio
         case activeClient = "active_client"
         case id, sport, degree, email, name
         case proUser = "pro_user"
+        case personalQuote = "personal_quote"
     }
 }
 

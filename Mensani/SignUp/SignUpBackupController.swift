@@ -1,8 +1,8 @@
 //
-//  SignUpController.swift
+//  SignUpBackupController.swift
 //  Mensani
 //
-//  Created by apple on 05/05/23.
+//  Created by Protolabz MacbookPro2 on 07/02/24.
 //
 
 import UIKit
@@ -11,8 +11,8 @@ import DropDown
 import Alamofire
 import SwiftyJSON
 
-class SignUpController: UIViewController , UITextFieldDelegate , SignupValidationDelegate , sportsDelegate{
-
+class SignUpBackupController: UIViewController , UITextFieldDelegate , SignupValidationDelegate , sportsDelegate{
+    
     func selectedSportId(sports: String, id: String) {
         print(sports)
         print(id)
@@ -26,7 +26,6 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
     @IBOutlet weak var edToken: UITextField!
   
     func sendJSONResponse(model: JSON) {
-      
         let otp = "\(model["otp"])"
         print(otp)
         let pushControllerObj = mainStoryboard.instantiateViewController(withIdentifier: "otp") as! OTPController
@@ -38,7 +37,7 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
         pushControllerObj.token = fcmToken
         pushControllerObj.screenType = 0
         pushControllerObj.strOTP = otp
-        pushControllerObj.teamType = strOption
+//        pushControllerObj.teamType = strOption
         pushControllerObj.teamToken = edToken.text!.description
         self.navigationController?.pushViewController(pushControllerObj, animated: true)
 //        UserDefaults.standard.set("Bearer " + model.data.token, forKey: Constant.API_TOKEN)
@@ -75,7 +74,40 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
         loginValue()
     }
    
-
+    @IBOutlet weak var btnPublic: UIButton!
+    @IBAction func btnPublic(_ sender: Any) {
+        if(strOption == 1)
+        {
+            self.btnPrivate.setBackgroundImage(UIImage(systemName: "poweroff"), for: UIControl.State.normal)
+            self.btnPublic.setBackgroundImage(UIImage(systemName: "record.circle"), for: UIControl.State.normal)
+            strOption = 0
+            txtTeam.isHidden = false
+            btnTeam.isHidden = false
+            btnSports.isHidden = false
+            edToken.isHidden = true
+            txtSports.text = LocalisationManager.localisedString("sports")
+            txtTeam.text = LocalisationManager.localisedString("teams")
+        }
+    }
+//    @IBOutlet weak var edToken: UITextField!
+    @IBOutlet weak var btnPrivate: UIButton!
+    @IBAction func btnPrivate(_ sender: Any) {
+        if(strOption == 0)
+        {
+            self.btnPublic.setBackgroundImage(UIImage(systemName: "poweroff"), for: UIControl.State.normal)
+            self.btnPrivate.setBackgroundImage(UIImage(systemName: "record.circle"), for: UIControl.State.normal)
+            strOption = 1
+            txtSports.text = LocalisationManager.localisedString("token")
+            txtTeam.text = LocalisationManager.localisedString("token_explain")
+            btnTeam.isHidden = true
+            btnSports.isHidden = true
+            edToken.isHidden = false
+            
+        }
+       
+    }
+    @IBOutlet weak var txtPrivate: UILabel!
+    @IBOutlet weak var txtPublic: UILabel!
     @IBOutlet weak var txtTeamType: UILabel!
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var edName: UITextField!
@@ -96,7 +128,6 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
     @IBOutlet weak var edPassword: UITextField!
     @IBOutlet weak var edEmail: UITextField!
     
-    @IBOutlet weak var txtTokenDesc: UILabel!
     @IBOutlet weak var txtLanguage: UITextField!
     @IBOutlet weak var txtLang: UILabel!
   
@@ -112,10 +143,11 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
     var sportsID = ""
     var sportIDTeam = ""
     var teamID = ""
-    var strOption = true
+    var strOption = 0
     var arrOfTeam : [DatumTeams] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        edToken.isHidden = true
         setupToHideKeyboardOnTapOnView()
         signUpModel.delegate = self
         edEmail.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.2)
@@ -171,8 +203,6 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
     {
         txtLanguage.tintColor = .black
         txtSports.text = LocalisationManager.localisedString("sports")
-        txtTokenDesc.text = LocalisationManager.localisedString("token_explain")
-        txtTeamType.text = LocalisationManager.localisedString("token")
         txtTeam.text = LocalisationManager.localisedString("teams")
         txtName.text = LocalisationManager.localisedString("name")
         txtEmail.text = LocalisationManager.localisedString("Email")
@@ -223,36 +253,6 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
           iconClick = !iconClick
       }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        print("dscds")
-//        if textField == edToken
-//        {
-//            print("focus")
-//            fieldsEnableDisable(btnBool: false, textAlpha: 0.5)
-//        }
-//        else
-//        {
-//            print("lost")
-//            fieldsEnableDisable(btnBool: true, textAlpha: 1)
-//        }
-//    }
-//
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == edToken
-        {
-            print("focus end")
-            if edToken.text!.count < 1
-            {
-                fieldsEnableDisable(btnBool: true, textAlpha: 1)
-            }
-        }
-        else
-        {
-            print("lost end")
-            
-        }
-    }
-    
     @objc func textFieldDidChange(_ textField: UITextField) {
         switch textField {
         case edName:
@@ -264,38 +264,24 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
         case edCPassword:
             setYellow(string: LocalisationManager.localisedString("confirm_password"), textField: txtCPassword)
         case edToken:
-            setYellow(string: LocalisationManager.localisedString("token"), textField: txtTeamType)
-            
-            fieldsEnableDisable(btnBool: false, textAlpha: 0.5)
-            
+            setYellow(string: LocalisationManager.localisedString("token"), textField: txtSports)
         default:
             setYellow(string: StringConstant.CONFIRM_PASSWORD_HEADING, textField: txtCPassword)
         }
     }
     
    
-    func fieldsEnableDisable(btnBool : Bool, textAlpha : CGFloat)
-    {
-        btnSports.isEnabled = btnBool
-        btnSports.alpha = textAlpha
-        txtSports.alpha = textAlpha
-        btnTeam.isEnabled = btnBool
-        txtTeam.alpha = textAlpha
-        txtTeam.alpha = textAlpha
-        strOption = btnBool
-        
-    }
     func loginValue()
     {
         if(currentReachabilityStatus != .notReachable)
         {
-            if strOption
+            if strOption == 0
             {
-                signUpModel.sendValues(name: edName.text?.trimmingCharacters(in: .whitespaces), email:edEmail.text?.trimmingCharacters(in: .whitespaces), password: edPassword.text?.trimmingCharacters(in: .whitespaces), cpassword: edCPassword.text?.trimmingCharacters(in: .whitespaces), token: fcmToken,sportsId: sportsID, teamId: teamID,type: strOption ,tokenTeam: edToken.text?.trimmingCharacters(in: .whitespaces), controller: self)
+//                signUpModel.sendValues(name: edName.text?.trimmingCharacters(in: .whitespaces), email:edEmail.text?.trimmingCharacters(in: .whitespaces), password: edPassword.text?.trimmingCharacters(in: .whitespaces), cpassword: edCPassword.text?.trimmingCharacters(in: .whitespaces), token: fcmToken,sportsId: sportsID, teamId: teamID,type: 0 , controller: self)
             }
             else
             {
-                signUpModel.sendValues(name: edName.text?.trimmingCharacters(in: .whitespaces), email:edEmail.text?.trimmingCharacters(in: .whitespaces), password: edPassword.text?.trimmingCharacters(in: .whitespaces), cpassword: edCPassword.text?.trimmingCharacters(in: .whitespaces), token: fcmToken,sportsId: "" , teamId: "",type: strOption ,tokenTeam: edToken.text?.trimmingCharacters(in: .whitespaces), controller: self)
+//                signUpModel.sendValues(name: edName.text?.trimmingCharacters(in: .whitespaces), email:edEmail.text?.trimmingCharacters(in: .whitespaces), password: edPassword.text?.trimmingCharacters(in: .whitespaces), cpassword: edCPassword.text?.trimmingCharacters(in: .whitespaces), token: fcmToken,sportsId: edToken.text?.trimmingCharacters(in: .whitespaces), teamId: "", type : 1 , controller: self)
             }
         }
             else{
@@ -345,8 +331,6 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
     func teamAPICall()
     {
         let param = ["sport_id" : sportIDTeam]
-        print("sport id for team")
-        print(sportIDTeam)
         AF.request(Constant.baseURL + Constant.teamAPI, method: .post, parameters: param ,encoding: JSONEncoding.default)
             .responseJSON { response in
             
@@ -384,7 +368,7 @@ class SignUpController: UIViewController , UITextFieldDelegate , SignupValidatio
  }
     
 
-extension SignUpController : UIPickerViewDelegate,UIPickerViewDataSource {
+extension SignUpBackupController : UIPickerViewDelegate,UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -45,6 +45,8 @@ class ReviewController: UIViewController {
             print(rating)
             self.rating = (rating)
         }
+        
+        edReview.tintColor = hexStringToUIColor(hex: color ?? "#fff456")
     }
     
     func getValues(value : String)

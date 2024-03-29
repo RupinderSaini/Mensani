@@ -24,7 +24,7 @@ class SubscriptionController: UIViewController , UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         txtNoData.text =  LocalisationManager.localisedString("no_data")
         txtSubP.text = LocalisationManager.localisedString("subs_plans")
         
@@ -68,9 +68,10 @@ class SubscriptionController: UIViewController , UITableViewDelegate, UITableVie
             cell2.viewUi.layer.borderColor =  #colorLiteral(red: 0.2118987441, green: 0.489084959, blue: 0.3492208123, alpha: 1)
             cell2.btnSubscribed.isHidden = false
             cell2.btnCancel.isHidden = false
+            cell2.btnCancel.tag = indexPath.row
+            cell2.btnCancel.addTarget(self, action: #selector(cancelOrder(_:)), for: .touchUpInside)
         }
-        cell2.btnCancel.tag = indexPath.row
-        cell2.btnCancel.addTarget(self, action: #selector(cancelOrder(_:)), for: .touchUpInside)
+       
         return cell2
     }
     @objc func cancelOrder(_ sender: UIButton) {
@@ -87,7 +88,7 @@ class SubscriptionController: UIViewController , UITableViewDelegate, UITableVie
     }
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print(subId)
-    if subId.isEmpty
+    if subId.isEmpty || subId == "0" || subId == "null"
     {
         if(self.currentReachabilityStatus != .notReachable)
         {
@@ -136,36 +137,29 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     func deleteProductAPI(stId : String, position : Int)
     {
         let strToken =  UserDefaults.standard.string(forKey: Constant.API_TOKEN)!
+        let strId =  UserDefaults.standard.string(forKey: Constant.USER_UNIQUE_ID)!
         let headers: HTTPHeaders =
             [Constant.ACCEPT : Constant.APP_JSON,Constant.AUTHORIZATION: strToken]
+        print(headers)
         let lang = LocalData.getLanguage(LocalData.language)
-        let param  = ["athletes_id": stId,"lang" : lang]
+        let param  = ["athletes_id": strId,"lang" : lang]
        
         print(param)
         APIManager.shared.requestService(withURL: Constant.cancelSubscriptionAPI, method: .post, param: param,header:  headers , viewController: self) { (json) in
          print(json)
             if("\(json["status"])" == "1")
             {
-                self.arrOfPlans.remove(at: position)
-                if (self.arrOfPlans.count > 0)
-                {
-                    self.txtNoData.isHidden = true
+                UserDefaults.standard.set("0", forKey: Constant.SUBSCRIPTION_ID)
+                self.alertSucces(title: LocalisationManager.localisedString("subs_plans"), Message: "\(json["message"])")
+
                     self.tableview.reloadData()
-                }
-                else
-                {
-                    self.txtNoData.isHidden = false
-                }
-                 
+
             }
             
             else{
                 
-                self.txtNoData.isHidden = false
+//                self.txtNoData.isHidden = false
             }
-          
-        
-           
         }
     }
     func planAPICALL( )
@@ -187,6 +181,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                     let model = try JSONDecoder().decode(SubscriptionListResponse.self, from: data)
                     self.arrOfPlans = model.data
                     self.subId = model.subscriptionID
+                    UserDefaults.standard.set(self.subId, forKey: Constant.SUBSCRIPTION_ID)
                     if (self.arrOfPlans.count > 0)
                     {
                         self.txtNoData.isHidden = true
@@ -194,6 +189,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                     }
                     else
                     {
+                        
                         self.txtNoData.isHidden = false
                     }
                 }

@@ -33,6 +33,7 @@ class ForgetViewModel : ForgotProtocol
 
         let param =
         ["email": email , "device_type" : "0" , "lang" : lang]
+        print(param)
         APIManager.shared.requestService(withURL: Constant.forgotAPI, method: .post, param: param , viewController: controller) {  (json) in
          print(json)
             if("\(json["status"])" == "1")

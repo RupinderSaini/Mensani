@@ -24,7 +24,9 @@ class LanguageController: UIViewController {
         super.viewDidLoad()
         txtSelected.text = LocalisationManager.localisedString("choose_language")
         txtLanguage.text = LocalisationManager.localisedString("language")
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
+        let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+//        txtSelected.textColor = hexStringToUIColor(hex: color ?? "#fff456")
         setupPicker()
         edLanguage.tintColor = .black
         edLanguage.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)

@@ -23,10 +23,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCG-lJ-ac5">
-                        <rect key="frame" x="8" y="8" width="779" height="254"/>
+                        <rect key="frame" x="0.0" y="8" width="795" height="254"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW8-V6-bIf">
-                                <rect key="frame" x="40" y="16" width="34.333333333333343" height="222"/>
+                                <rect key="frame" x="40" y="16" width="655" height="222"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQY-x0-I8i">
-                                <rect key="frame" x="722" y="108.33333333333333" width="57" height="37.666666666666671"/>
+                                <rect key="frame" x="738" y="108.33333333333333" width="57" height="37.666666666666671"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title=" ">
@@ -58,6 +58,7 @@
                             <constraint firstItem="uRL-zY-lPM" firstAttribute="centerY" secondItem="gCG-lJ-ac5" secondAttribute="centerY" id="ckr-77-cSe"/>
                             <constraint firstItem="OW8-V6-bIf" firstAttribute="centerY" secondItem="gCG-lJ-ac5" secondAttribute="centerY" id="duy-l7-aXw"/>
                             <constraint firstAttribute="bottom" secondItem="OW8-V6-bIf" secondAttribute="bottom" constant="16" id="eQX-Ct-NNn"/>
+                            <constraint firstAttribute="trailing" secondItem="OW8-V6-bIf" secondAttribute="trailing" constant="100" id="lfh-Xz-XCH"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -65,8 +66,8 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gCG-lJ-ac5" secondAttribute="bottom" constant="8" id="8zf-Qv-x6B"/>
                     <constraint firstItem="gCG-lJ-ac5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="P5n-oC-mQ0"/>
-                    <constraint firstAttribute="trailing" secondItem="gCG-lJ-ac5" secondAttribute="trailing" constant="8" id="odd-bJ-ru3"/>
-                    <constraint firstItem="gCG-lJ-ac5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="yBS-Qq-CFu"/>
+                    <constraint firstAttribute="trailing" secondItem="gCG-lJ-ac5" secondAttribute="trailing" id="odd-bJ-ru3"/>
+                    <constraint firstItem="gCG-lJ-ac5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yBS-Qq-CFu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

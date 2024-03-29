@@ -44,6 +44,7 @@ struct Constant {
     static let SPORTS = "SPORTS"
     static let SPORTS_ID = "SPORTSid"
     static let TEAMCOLOR = "teamcolor"
+    static let TEAM_TYPE = "teamTYPE"
     static let TIME_JOINED = "TIME_JOINED"
     static let SUBSCRIPTION_ID = "SUBSCRIPTION_ID"
     
@@ -75,6 +76,7 @@ struct Constant {
     
     static let VIEW_SELECTED = "view_selected"
     
+//    static let baseURL = "https://phpstack-1020308-3605009.cloudwaysapps.com/" Mentalitraining live
     static let baseURL = "https://phpstack-102119-3874918.cloudwaysapps.com/"
     static let loginAPI = "api/Athlete/login"
     static let logoutAPI = "api/Athlete/logout"
@@ -94,6 +96,7 @@ struct Constant {
     static let addStartGoalsAPI = "api/Athlete/start_goals"
 
     static let addPerformanceAPI = "api/Athlete/post_performance"
+    static let addPerformanceNewAPI = "api/Athlete/post_performance_new"
     static let getPerformanceAPI = "api/Athlete/view_performances"
     static let deletePerformanceAPI = "api/Athlete/delete_performance"
     
@@ -126,14 +129,15 @@ struct Constant {
     static let therapistProfileAPI = "api/Athlete/therapist_profile"
    
     static let therapistReviewAPI = "api/Athlete/therapist_for_review"
-    static let appointmentSlotAPI = "api/Athlete/therapist_appointment_slot_new"
-  
+    static let appointmentSlotAPI = "api/Athlete/appointment_slot_new_latest"
+  static let addPointsViewAPI = "api/Athlete/view_points_added"
     
     static let appointListAPI = "api/Athlete/booking"
+    static let appointPastListAPI = "api/Athlete/past_bookings"
    
     static let notiDeleteAPI = "api/Athlete/delete_notification"
     
     static let notificationReceived = "notificationReceived"
-    
+    static let pointsAddAPI = "api/Athlete/view_points_added"
     
 }

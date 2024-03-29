@@ -7,12 +7,13 @@
 import AVFoundation
 import AVKit
 import UIKit
-
+import Alamofire
 
 
 class PlayVideoController: UIViewController {
-var strURL = ""
-    
+    var strURL = ""
+    var strType = ""
+    var comeFrom = 0 // 1 = event , 2 = support
     @IBOutlet weak var vMain: UIView!
     var strName = ""
     @IBAction func btnBack(_ sender: Any) {
@@ -26,35 +27,59 @@ var strURL = ""
         print(strURL)
         let urlYourURL = URL (string:  strURL)
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
-        
-       
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         let player = AVPlayer(url: urlYourURL!)
-            let playerController = AVPlayerViewController()
+        player.volume = 1.0
+        let playerController = AVPlayerViewController()
         
         playerController.view.layoutMargins.bottom = 100
-//        playerController.view.clipsToBounds = true
-//        try! AVAudioSession.sharedInstance().setCategory(.playback, options: [])
-//
-            playerController.player = player
-            self.addChild(playerController)
-
+        playerController.player = player
+        self.addChild(playerController)
+        
         self.vMain.addSubview(playerController.view)
-//        playerController.view.frame = self.vMain.frame
-//
-//            player.play()
-//        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-////        let player = AVPlayer(url: videoURL!)
+        
         let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.frame = self.vMain.frame
-        player.volume = 1.0
-      
         self.vMain.layer.addSublayer(playerLayer)
+        
+        print(player.currentItem!.asset.duration)
+       
+        
         player.play()
         
-        
+        if comeFrom == 1
+        {
+            NotificationCenter.default.addObserver(self, selector: #selector(finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        }
     }
     
-
-
+    @objc func finishVideo()
+       {
+               print("Video Finished")
+           pointAPICall()
+       }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func pointAPICall()
+    {
+        let apiToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)
+        let header : HTTPHeaders =
+        [Constant.AUTHORIZATION : apiToken!]
+      
+        let strAPIToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)!
+        let parameters = ["type": strType]
+        
+        print("parameters",parameters)
+//        APIManager.shared.requestService(withURL: Constant.pointsAddAPI, method: .post, param: parameters, header: header, viewController: self) { (json) in
+//         print(json)
+//
+//        }
+        
+        AF.request(Constant.baseURL + Constant.pointsAddAPI, method: .post, parameters: parameters ,headers: header )
+            .responseJSON { response in
+             
+                print(response)
+            }
+    }
 }

@@ -16,7 +16,14 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
         _ = navigationController?.popViewController(animated: true)
     }
     @IBAction func btnSave(_ sender: Any) {
-        alertUIPayment()
+        if  self.alotTime.count > 2
+        {
+            alertUIPayment()
+        }
+        else
+        {
+            alertFailure(title:LocalisationManager.localisedString("time"), Message: LocalisationManager.localisedString("time_empty"))
+        }
     }
     @IBOutlet weak var btnSave: UIButton!
     var arrOfAppointment : [TimeSlot] = []
@@ -39,12 +46,13 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
         
         txtHeading.text = LocalisationManager.localisedString("appointment")
         
-        btnBack.setTitle(LocalisationManager.localisedString("back"), for: .normal)
+        btnBack.setTitle(LocalisationManager.localisedString("blank"), for: .normal)
         btnSave.setTitle(LocalisationManager.localisedString("next"), for: .normal)
         let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
         btnSave.backgroundColor = hexStringToUIColor(hex: color ?? "#fff456")
         
     setBorder10(viewName: btnSave, radius: 10)
+    setBorder10(viewName: calendar, radius: 10)
         
         calendar.delegate = self
         calendar.dataSource = self
@@ -92,9 +100,9 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
         cell.txtTime.text = arrOfAppointment[indexPath.row].slotStartTime + " - " + arrOfAppointment[indexPath.row].slotEndTime
         if selectedIndex == indexPath.row
         {
-            let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
+//            let color = UserDefaults.standard.string(forKey: Constant.TEAMCOLOR)
            
-            cell.viewUi.backgroundColor =  hexStringToUIColor(hex: color ?? "#fff456")
+            cell.viewUi.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
             cell.viewUi.isUserInteractionEnabled = true
         }
         else
@@ -110,8 +118,6 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
             cell.contentView.isUserInteractionEnabled = false
             
         }
-      
-       
 
 //        cell.txtTime.text = arrOfAppointment[indexPath.row]?.slotStartTime
         return cell
@@ -131,7 +137,7 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
         //https://phpstack-102119-3423473.cloudwaysapps.com/appointment_payment/user_id/price/start_time_appointment/end_time_appointment/date/therapist_id/appointment_id
     }
     
-    
+    //https://phpstack-102119-3874918.cloudwaysapps.com/appointment_payment/35/55.0//2023-11-30/52//es
     func callWebView()
     {
         if(self.currentReachabilityStatus != .notReachable)
@@ -141,6 +147,9 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "web") as? WebViewController
             vc?.callFrom = 2
             let lang = LocalData.getLanguage(LocalData.language)
+            if let number = Int(self.strAmount.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+                self.strAmount = number.description
+            }
             vc?.url = "\(Constant.baseURL)appointment_payment/\(userId!)/\(strAmount)/\(alotTime)/\(strDate)/\(strId)/\(strAppointmentId)/\(lang)"
             _ = navigationController?.popViewController(animated: true)
             self.navigationController?.pushViewController(vc!, animated: true)
@@ -151,13 +160,29 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
     
     func appointAPICALL()
     {
+        var time = ""
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let strDateToday = formatter.string(from: Date())
+        
+        
+        print(strDate + "  " + strDateToday)
+        if strDateToday.contains(strDate)
+        {
+             time = getTime()
+        }
+        else
+        {
+            time = ""
+        }
+        
         let apiToken = UserDefaults.standard.string(forKey: Constant.API_TOKEN)
   
         let header : HTTPHeaders =
         [Constant.AUTHORIZATION : apiToken!]
         print(header)
         let lang = LocalData.getLanguage(LocalData.language)
-        let param = ["therapist_id": strId , "date" : strDate , "lang" : lang ]
+        let param = ["therapist_id": strId , "date" : strDate , "lang" : lang ,"time" : time ]
       
         print(param)
         APIManager.shared.requestService(withURL: Constant.appointmentSlotAPI, method: .post, param: param , header: header, viewController: self) { (json) in
@@ -170,6 +195,12 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
                     let model = try JSONDecoder().decode(AppointmentResponse.self, from: data)
 //                    print(model.data.timeSlot.)
                     self.arrOfAppointment = model.data.timeSlot
+                    if self.arrOfAppointment.count > 0
+                    {
+                        self.alotTime = self.arrOfAppointment[0].slotStartTime + "/" + self.arrOfAppointment[0].slotEndTime
+                        self.alotTime = self.alotTime.replacingOccurrences(of: ":", with: "%3A")
+                        self.strAppointmentId = self.arrOfAppointment[0].appointmentsID.description
+                    }
 //                    for i in 0..<model.data.timeSlot.count
 //                    {
 //                        self.arrOfAppointment.append(model.data.timeSlot. + ":" + model.data.timeSlot[i]?.slotEndTime)
@@ -192,18 +223,35 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
+    
+    func getTime() -> String
+    {
+        // *** Create date ***
+        let date = Date()
+        let calendar = Calendar.current
+
+        let components = calendar.dateComponents([.hour, .year, .minute], from: date)
+        print("All Components : \(components)")
+
+        // *** Get Individual components from date ***
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        print("\(hour):\(minutes):\(seconds)")
+        return "\(hour):\(minutes)"
+    }
     func alertUIPayment() -> Void
     {
         
         let refreshAlert = UIAlertController(title: LocalisationManager.localisedString("appointment"), message: LocalisationManager.localisedString("desc_appoint") + "\(strAmount)", preferredStyle: UIAlertController.Style.alert)
+        refreshAlert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .white
+      
+        let attributedString = NSAttributedString(string: LocalisationManager.localisedString("appointment"), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
         
-        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("no"), style: .default, handler: { (action: UIAlertAction!) in
-//            self.dismiss(animated: true, completion: nil)
-            
-            self.alertNewPrice()
-            
-        }))
-        
+        let attributedString2 = NSAttributedString(string: LocalisationManager.localisedString("desc_appoint") + "\(strAmount)", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
+    
+        refreshAlert.setValue(attributedString, forKey: "attributedTitle")
+        refreshAlert.setValue(attributedString2, forKey: "attributedMessage")
         
         refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("yes"), style: .default, handler: { (action: UIAlertAction!) in
             if(self.currentReachabilityStatus != .notReachable)
@@ -217,6 +265,22 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
             
         }))
         
+//        refreshAlert.addAction(UIAlertAction(title: LocalisationManager.localisedString("change_price"), style: .default, handler: { (action: UIAlertAction!) in
+////            self.dismiss(animated: true, completion: nil)
+//
+//            self.alertNewPrice()
+//
+//        }))
+        
+        let cancelAction = UIAlertAction(title: LocalisationManager.localisedString("cancel"), style: UIAlertAction.Style.cancel)
+        {
+            UIAlertAction in
+        }
+        
+        // Add the actions
+        cancelAction.setValue(UIColor.red, forKey: "titleTextColor")
+//        cancelAction.setValue(UIColor.red, forKey: "backgroundColor")
+        refreshAlert.addAction(cancelAction)
         present(refreshAlert, animated: true, completion: nil)
     }
    
@@ -228,7 +292,7 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
             self.dismiss(animated: true, completion: nil)
         })
         
-        let saveAction = UIAlertAction(title: LocalisationManager.localisedString("continue"), style: .default, handler: {
+        let saveAction = UIAlertAction(title: LocalisationManager.localisedString("continue1"), style: .default, handler: {
             alert -> Void in
             
             let edAmount = alertController.textFields![0] as UITextField
@@ -242,6 +306,8 @@ class AppointmentController: UIViewController, UICollectionViewDelegate, UIColle
                 self.strAmount = edAmount.text!
                 self.callWebView()
             }else{
+                self.showToast(message: LocalisationManager.localisedString("nego_price"), font: .systemFont(ofSize: 13.0))
+
             }
             
         })

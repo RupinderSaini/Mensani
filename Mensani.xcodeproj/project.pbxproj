@@ -16,7 +16,6 @@
 		183C15E82A0A210C00B0780A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C15E72A0A210C00B0780A /* Observable.swift */; };
 		183C15EA2A0A232100B0780A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C15E92A0A232100B0780A /* APIManager.swift */; };
 		183C15ED2A0A241300B0780A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C15EC2A0A241300B0780A /* LoginModel.swift */; };
-		18504B9C2A6500E30059CDF4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18504B9B2A6500E30059CDF4 /* GoogleService-Info.plist */; };
 		1862B7962A56865600D78598 /* TherapistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862B7952A56865600D78598 /* TherapistController.swift */; };
 		1862B7992A5686B600D78598 /* TherapistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862B7972A5686B600D78598 /* TherapistCell.swift */; };
 		1862B79A2A5686B600D78598 /* TherapistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1862B7982A5686B600D78598 /* TherapistCell.xib */; };
@@ -119,10 +118,15 @@
 		791D3C022AF9060B00301F3B /* ColorFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791D3C012AF9060B00301F3B /* ColorFile.swift */; };
 		7949D37C2B0E48DD00347772 /* ImproveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949D37B2B0E48DD00347772 /* ImproveController.swift */; };
 		7975D4C02AFA38BF00C38C70 /* TeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7975D4BF2AFA38BF00C38C70 /* TeamsResponse.swift */; };
+		7977A2D32B73D6B900040A4F /* SignUpBackupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7977A2D22B73D6B900040A4F /* SignUpBackupController.swift */; };
+		7977A2D52B73D74900040A4F /* SignupModelBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7977A2D42B73D74900040A4F /* SignupModelBackup.swift */; };
+		7984A8D52B70B04A009B79D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7984A8D42B70B049009B79D9 /* GoogleService-Info.plist */; };
 		798E99B72B0DE30500A948C4 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E99B62B0DE30500A948C4 /* LaunchController.swift */; };
-		798E99B92B0E315D00A948C4 /* PerfromImproveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E99B82B0E315D00A948C4 /* PerfromImproveController.swift */; };
+		798E99B92B0E315D00A948C4 /* AppointmentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E99B82B0E315D00A948C4 /* AppointmentListController.swift */; };
 		798E99BB2B0E44D200A948C4 /* PerformController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E99BA2B0E44D200A948C4 /* PerformController.swift */; };
+		79CB18FB2B4FE4510014A41C /* PastAppointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CB18FA2B4FE4510014A41C /* PastAppointController.swift */; };
 		79CE95312B061ADD009F7F15 /* VisualSelfController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE95302B061ADD009F7F15 /* VisualSelfController.swift */; };
+		79F33A092B20BD7C00E50A78 /* TherapistVideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F33A082B20BD7C00E50A78 /* TherapistVideoResponse.swift */; };
 		B5B8ED77D8191A5C8EE9D21C /* Pods_MensaniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E69707A0C60ABF94EF91AC9 /* Pods_MensaniTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,7 +158,6 @@
 		183C15E72A0A210C00B0780A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		183C15E92A0A232100B0780A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		183C15EC2A0A241300B0780A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		18504B9B2A6500E30059CDF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18504B9D2A6516250059CDF4 /* Mensani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mensani.entitlements; sourceTree = "<group>"; };
 		1862B7952A56865600D78598 /* TherapistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistController.swift; sourceTree = "<group>"; };
 		1862B7972A5686B600D78598 /* TherapistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistCell.swift; sourceTree = "<group>"; };
@@ -266,10 +269,15 @@
 		791D3C012AF9060B00301F3B /* ColorFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFile.swift; sourceTree = "<group>"; };
 		7949D37B2B0E48DD00347772 /* ImproveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImproveController.swift; sourceTree = "<group>"; };
 		7975D4BF2AFA38BF00C38C70 /* TeamsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsResponse.swift; sourceTree = "<group>"; };
+		7977A2D22B73D6B900040A4F /* SignUpBackupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBackupController.swift; sourceTree = "<group>"; };
+		7977A2D42B73D74900040A4F /* SignupModelBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModelBackup.swift; sourceTree = "<group>"; };
+		7984A8D42B70B049009B79D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Mensani/Mensani/Mensani/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		798E99B62B0DE30500A948C4 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
-		798E99B82B0E315D00A948C4 /* PerfromImproveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfromImproveController.swift; sourceTree = "<group>"; };
+		798E99B82B0E315D00A948C4 /* AppointmentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListController.swift; sourceTree = "<group>"; };
 		798E99BA2B0E44D200A948C4 /* PerformController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformController.swift; sourceTree = "<group>"; };
+		79CB18FA2B4FE4510014A41C /* PastAppointController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastAppointController.swift; sourceTree = "<group>"; };
 		79CE95302B061ADD009F7F15 /* VisualSelfController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualSelfController.swift; sourceTree = "<group>"; };
+		79F33A082B20BD7C00E50A78 /* TherapistVideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistVideoResponse.swift; sourceTree = "<group>"; };
 		ABE09BD3BFD14F82570FC5F4 /* Pods-Mensani-MensaniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mensani-MensaniUITests.release.xcconfig"; path = "Target Support Files/Pods-Mensani-MensaniUITests/Pods-Mensani-MensaniUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AFD621B944DF629CC5839637 /* Pods-MensaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MensaniTests.debug.xcconfig"; path = "Target Support Files/Pods-MensaniTests/Pods-MensaniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1F36F5FEF6EDE066C15C90D /* Pods-Mensani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mensani.release.xcconfig"; path = "Target Support Files/Pods-Mensani/Pods-Mensani.release.xcconfig"; sourceTree = "<group>"; };
@@ -342,6 +350,7 @@
 				18E643142A57E186009A3B7F /* ReviewCell.xib */,
 				18E643172A57E9D7009A3B7F /* TherapistInfoResponse.swift */,
 				18FC12762A5BC40C006C6575 /* ReviewController.swift */,
+				79F33A082B20BD7C00E50A78 /* TherapistVideoResponse.swift */,
 			);
 			path = Therapist;
 			sourceTree = "<group>";
@@ -423,7 +432,6 @@
 				18A9CDA42A1F3F8F0046A204 /* AddPerformanceController.swift */,
 				18CD7D3E2A38590800128227 /* PerformanceListResponse.swift */,
 				18CD7D402A38597500128227 /* PerformanceVM.swift */,
-				798E99B82B0E315D00A948C4 /* PerfromImproveController.swift */,
 				798E99BA2B0E44D200A948C4 /* PerformController.swift */,
 			);
 			path = Performance;
@@ -592,8 +600,8 @@
 				18E4A9602A028A7F005EB23E /* ViewController.swift */,
 				18E4A9622A028A7F005EB23E /* Main.storyboard */,
 				18E4A9652A028A81005EB23E /* Assets.xcassets */,
+				7984A8D42B70B049009B79D9 /* GoogleService-Info.plist */,
 				18E4A9672A028A81005EB23E /* LaunchScreen.storyboard */,
-				18504B9B2A6500E30059CDF4 /* GoogleService-Info.plist */,
 				18E4A96A2A028A81005EB23E /* Info.plist */,
 				791D3BF92AF8E25500301F3B /* Localizable.strings */,
 				791D3C012AF9060B00301F3B /* ColorFile.swift */,
@@ -635,6 +643,8 @@
 				18B146CE2A04D62B0085B3EC /* SignUpController.swift */,
 				18ED98E52A0E1DD0006E2B45 /* SignUpViewModel.swift */,
 				7975D4BF2AFA38BF00C38C70 /* TeamsResponse.swift */,
+				7977A2D22B73D6B900040A4F /* SignUpBackupController.swift */,
+				7977A2D42B73D74900040A4F /* SignupModelBackup.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -652,6 +662,7 @@
 		18FC127A2A5D3C79006C6575 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
+				798E99B82B0E315D00A948C4 /* AppointmentListController.swift */,
 				18FC12782A5D3A0F006C6575 /* AppointmentController.swift */,
 				18FC127B2A5D3CC1006C6575 /* AppointmentCell.swift */,
 				18FC127C2A5D3CC1006C6575 /* AppointmentCell.xib */,
@@ -660,6 +671,7 @@
 				18FC12812A5EBF75006C6575 /* AppointListController.swift */,
 				18FC12842A5EC00E006C6575 /* BookedAppointCell.xib */,
 				18FC12872A5EDB1C006C6575 /* AppointListResponse.swift */,
+				79CB18FA2B4FE4510014A41C /* PastAppointController.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";
@@ -816,8 +828,8 @@
 				187DB2972A4C4F8200EED8E1 /* SubscriptionCell.xib in Resources */,
 				18FC12862A5EC00E006C6575 /* BookedAppointCell.xib in Resources */,
 				18E4A9692A028A81005EB23E /* LaunchScreen.storyboard in Resources */,
+				7984A8D52B70B04A009B79D9 /* GoogleService-Info.plist in Resources */,
 				18FC127E2A5D3CC1006C6575 /* AppointmentCell.xib in Resources */,
-				18504B9C2A6500E30059CDF4 /* GoogleService-Info.plist in Resources */,
 				18A9CDA32A1F2F780046A204 /* PerformanceCell.xib in Resources */,
 				18C819432A2716A60049C82F /* SelfTalkCell.xib in Resources */,
 				791D3BF72AF8E25500301F3B /* Localizable.strings in Resources */,
@@ -1013,6 +1025,7 @@
 				18E4A95D2A028A7F005EB23E /* AppDelegate.swift in Sources */,
 				18E4A95F2A028A7F005EB23E /* SceneDelegate.swift in Sources */,
 				18825F132A1B643600689180 /* SelfSetupController.swift in Sources */,
+				7977A2D32B73D6B900040A4F /* SignUpBackupController.swift in Sources */,
 				18FC12792A5D3A0F006C6575 /* AppointmentController.swift in Sources */,
 				18C7E67D2A416E6400161F99 /* SportsCell.swift in Sources */,
 				18C9C1262A4AAF0700D84152 /* WellbeingController.swift in Sources */,
@@ -1031,11 +1044,13 @@
 				187C35E82A1600E100547A77 /* EditProfileVM.swift in Sources */,
 				187DB2992A4C591E00EED8E1 /* SubscriptionListResponse.swift in Sources */,
 				18B146CF2A04D62B0085B3EC /* SignUpController.swift in Sources */,
+				79F33A092B20BD7C00E50A78 /* TherapistVideoResponse.swift in Sources */,
 				18ED98E92A0E4B6D006E2B45 /* ForgotModel.swift in Sources */,
 				18C819462A2717EC0049C82F /* VisualizationController.swift in Sources */,
+				7977A2D52B73D74900040A4F /* SignupModelBackup.swift in Sources */,
 				18FC12882A5EDB1C006C6575 /* AppointListResponse.swift in Sources */,
 				18AB7ABC2A29BAAA00DA2F99 /* SupportController.swift in Sources */,
-				798E99B92B0E315D00A948C4 /* PerfromImproveController.swift in Sources */,
+				798E99B92B0E315D00A948C4 /* AppointmentListController.swift in Sources */,
 				18FC12852A5EC00E006C6575 /* BookedAppointCell.swift in Sources */,
 				18FC12772A5BC40C006C6575 /* ReviewController.swift in Sources */,
 				791D3C022AF9060B00301F3B /* ColorFile.swift in Sources */,
@@ -1044,6 +1059,7 @@
 				18ED98E12A0E1663006E2B45 /* HomeController.swift in Sources */,
 				791D3BEC2AF8DEEA00301F3B /* LocalisationManager.swift in Sources */,
 				18C7E6802A41753700161F99 /* SportsListResponse.swift in Sources */,
+				79CB18FB2B4FE4510014A41C /* PastAppointController.swift in Sources */,
 				18E643152A57E186009A3B7F /* ReviewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1240,6 +1256,7 @@
 				DEVELOPMENT_TEAM = A39SWJ388D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mensani/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mensani;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to camera to click the picture ";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow access to record your voice";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1254,7 +1271,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sports.MensaniSeals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sports.Mensani;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1274,6 +1291,7 @@
 				DEVELOPMENT_TEAM = A39SWJ388D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mensani/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mensani;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to camera to click the picture ";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow access to record your voice";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1288,7 +1306,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sports.MensaniSeals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sports.Mensani;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

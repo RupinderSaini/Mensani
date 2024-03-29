@@ -18,10 +18,10 @@ struct TherapistListResponse: Codable {
 struct DatumTherapist: Codable {
     let id: Int
     let name, email: String
-    let image: String?
+    let image, license: String?
     let phone, experience: String
     let hourlyRate: Float
-    let degree, license, sport: String
+    let degree, sport: String
     let proUser: Int
     let completed, activeClient: String
     let status: Int
