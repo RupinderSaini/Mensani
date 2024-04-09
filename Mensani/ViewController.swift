@@ -478,7 +478,7 @@ extension UIViewController
     func alertFailure(title: String,Message : String) -> Void {
         let alert = UIAlertController(title: title, message: Message, preferredStyle: .alert)
         
-        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = #colorLiteral(red: 0.9521259665, green: 0.6694926023, blue: 0.685166955, alpha: 1)
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.6549019608, blue: 0.4078431373, alpha: 1)
         let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
         
         let attributedString2 = NSAttributedString(string: Message, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)])
